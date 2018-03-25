@@ -12,15 +12,22 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist')
 	},
 	module: {
-      loders: [
-        { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', query: {
-        	presets: ['es2015', 'react']
-        } }
+      rules: [
+        { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+        { test: /\.less$/, loader: 'less-loader' }
       ]
 	},
 	devServer: {
 		inline: true,
 		port: 8008
 	},
-	plugins:[HTMLWebpackPluginConfig]
+	plugins:[HTMLWebpackPluginConfig],
+	mode: 'development',
+	resolve: {
+		alias: {
+			components: `${__dirname}/src/components`,
+			models: `${__dirname}/src/models`,
+			routes: `${__dirname}/src/routes`,
+		}
+	}
 }
