@@ -21,7 +21,6 @@ const Routers = function({ history, app}) {
               <Route exact path="/" render={ () => (<Redirect to="/login" />)}>
                 {
                 	routes.map(({ path, ...dynamics }, key) =>(
-
                 		<Route key={key} exact path={path} component={dynamic({
                 			app,
                 			...dynamics
@@ -35,3 +34,4 @@ const Routers = function({ history, app}) {
       </ConnectedRouter>
 	)
 }
+export default Routers

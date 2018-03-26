@@ -1,5 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
+// 抽离css样式---将文件单独打包
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+console.log(ExtractTextPlugin)
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 	template: `${__dirname}/src/index.html`,
 	filename: 'index.html',
@@ -14,14 +17,14 @@ module.exports = {
 	module: {
       rules: [
         { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-        { test: /\.less$/, loader: 'less-loader' }
+        { test: /\.less$/, use: ExtractTextPlugin.extract({ use: [{loader: 'css-loader'},{loader: 'less-loader',options:{javascriptEnabled: true}}], fallback: 'style-loader'})}
       ]
 	},
 	devServer: {
 		inline: true,
 		port: 8008
 	},
-	plugins:[HTMLWebpackPluginConfig],
+	plugins:[HTMLWebpackPluginConfig,new ExtractTextPlugin( "bundle.css" )],
 	mode: 'development',
 	resolve: {
 		alias: {
