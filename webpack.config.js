@@ -17,7 +17,8 @@ module.exports = {
 	module: {
       rules: [
         { test: /(\.js|\.jsx)$/, exclude: /node_modules/, loader: 'babel-loader' },
-        { test: /\.less$/, use: ExtractTextPlugin.extract({ use: [{loader: 'css-loader'},{loader: 'less-loader',options:{javascriptEnabled: true}}], fallback: 'style-loader'})}
+        { test: /(\.less|\.css)$/, use: ExtractTextPlugin.extract({ use: [{loader: 'css-loader'}, {loader: 'less-loader',options:{javascriptEnabled: true}}], fallback: 'style-loader'})},
+        { test: /\.scss$/, use: [{ loader: 'style-loader'}, { loader: 'css-loader' }, { loader: 'sass-loader' }]}
       ]
 	},
 	devServer: {
@@ -31,7 +32,9 @@ module.exports = {
 			components: `${__dirname}/src/components`,
 			models: `${__dirname}/src/models`,
 			routes: `${__dirname}/src/routes`,
-			variables: __dirname + '/src/variables'
+			variables: __dirname + '/src/variables',
+			views: __dirname + '/src/views',
+			public: __dirname + '/public'
 		}
 	}
 }

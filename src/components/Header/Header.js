@@ -1,65 +1,69 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Menu } from "material-ui-icons";
-import {
-  withStyles,
-  AppBar,
-  Toolbar,
-  IconButton,
-  Hidden,
-  Button
-} from "material-ui";
-import cx from "classnames";
-
-import headerStyle from "variables/styles/headerStyle";
-
-// import HeaderLinks from "./HeaderLinks";
-
-function Header({ ...props }) {
-  function makeBrand() {
-    var name;
-    props.routes.map((prop, key) => {
-      if (prop.path === props.location.pathname) {
-        name = prop.navbarName;
-      }
-      return null;
-    });
-    return name;
-  }
-  const { classes, color } = props;
-  const appBarClasses = cx({
-    [" " + classes[color]]: color
-  });
-  return (
-    <AppBar className={classes.appBar + appBarClasses}>
-      <Toolbar className={classes.container}>
-        <div className={classes.flex}>
-          {/* Here we create navbar brand, based on route name */}
-          <Button href="#" className={classes.title}>
-            {makeBrand()}
-          </Button>
-        </div>
-        <Hidden smDown implementation="css">
-          {/*<HeaderLinks />*/}
-        </Hidden>
-        <Hidden mdUp>
-          <IconButton
-            className={classes.appResponsive}
-            color="inherit"
-            aria-label="open drawer"
-            onClick={props.handleDrawerToggle}
-          >
-            <Menu />
-          </IconButton>
-        </Hidden>
-      </Toolbar>
-    </AppBar>
-  );
+import React from 'react'
+const Header = () => {
+	return (
+      <nav class="navbar navbar-transparent navbar-absolute">
+          <div class="container-fluid">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#"> Material Dashboard </a>
+              </div>
+              <div class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li>
+                          <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                              <i class="material-icons">dashboard</i>
+                              <p class="hidden-lg hidden-md">Dashboard</p>
+                          </a>
+                      </li>
+                      <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                              <i class="material-icons">notifications</i>
+                              <span class="notification">5</span>
+                              <p class="hidden-lg hidden-md">Notifications</p>
+                          </a>
+                          <ul class="dropdown-menu">
+                              <li>
+                                  <a href="#">Mike John responded to your email</a>
+                              </li>
+                              <li>
+                                  <a href="#">You have 5 new tasks</a>
+                              </li>
+                              <li>
+                                  <a href="#">You're now friend with Andrew</a>
+                              </li>
+                              <li>
+                                  <a href="#">Another Notification</a>
+                              </li>
+                              <li>
+                                  <a href="#">Another One</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li>
+                          <a href="#pablo" class="dropdown-toggle" data-toggle="dropdown">
+                              <i class="material-icons">person</i>
+                              <p class="hidden-lg hidden-md">Profile</p>
+                          </a>
+                      </li>
+                  </ul>
+                  <form class="navbar-form navbar-right" role="search">
+                      <div class="form-group  is-empty">
+                          <input type="text" class="form-control" placeholder="Search" />
+                          <span class="material-input"></span>
+                      </div>
+                      <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                          <i class="material-icons">search</i>
+                          <div class="ripple-container"></div>
+                      </button>
+                  </form>
+              </div>
+          </div>
+      </nav>
+	)
 }
-
-Header.propTypes = {
-  classes: PropTypes.object.isRequired,
-  color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"])
-};
-
-export default withStyles(headerStyle)(Header);
+export default Header
