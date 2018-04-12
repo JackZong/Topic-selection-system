@@ -1,0 +1,100 @@
+// ##############################
+// // // IconButton styles
+// #############################
+@import url("../../themes/style.less");
+  .button {
+    height: 40px;
+    minWidth: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    margin: auto;
+    padding: 0;
+    box-shadow: 0 2px 2px 0 rgba(153, 153, 153, 0.14), 0 3px 1px -2px rgba(153, 153, 153, 0.2), 0 1px 5px 0 rgba(153, 153, 153, 0.12);
+    overflow: hidden;
+    position: relative;
+    lineHeight: normal;
+    border: none;
+    fontWeight: 400;
+    textTransform: uppercase;
+    letterSpacing: 0;
+   // willChange: .boxShadow @transform;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    // 浏览器只允许进行滚动和持续缩放操作,禁用双击可缩放功能可减少浏览器在用户点击屏幕时延迟生成点击事件的需要。
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    background-image: none;
+    background-color: @grayColor;
+    &:hover {
+      background-color: @grayColor;
+      box-shadow: 0 14px 26px -12px rgba(153, 153, 153, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(153, 153, 153, 0.2);
+    }
+  }
+  .primary {
+    background-color: @primaryColor;
+    box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2), 0 1px 5px 0 rgba(156, 39, 176, 0.12);
+    &:hover {
+      background-color: @primaryColor;
+      box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(156, 39, 176, 0.2);
+    }
+  }
+  .info {
+    background-color: @infoColor;
+    box-shadow: 0 2px 2px 0 rgba(0, 188, 212, 0.14), 0 3px 1px -2px rgba(0, 188, 212, 0.2), 0 1px 5px 0 rgba(0, 188, 212, 0.12);
+    &:hover {
+      background-color: @infoColor;
+      box-shadow: 0 14px 26px -12px rgba(0, 188, 212, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 188, 212, 0.2);
+    }
+  }
+  .success {
+    background-color: @successColor;
+    box-shadow: 0 2px 2px 0 rgba(76, 175, 80, 0.14), 0 3px 1px -2px rgba(76, 175, 80, 0.2), 0 1px 5px 0 rgba(76, 175, 80, 0.12);
+    &:hover {
+      background-color: @successColor;
+      box-shadow: 0 14px 26px -12px rgba(76, 175, 80, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(76, 175, 80, 0.2);
+    }
+  }
+  .warning {
+    background-color: @warningColor;
+    box-shadow: 0 2px 2px 0 rgba(255, 152, 0, 0.14), 0 3px 1px -2px rgba(255, 152, 0, 0.2), 0 1px 5px 0 rgba(255, 152, 0, 0.12);
+    &:hover {
+      background-color: @warningColor;
+      box-shadow: 0 14px 26px -12px rgba(255, 152, 0, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(255, 152, 0, 0.2);
+    }
+  }
+  .danger {
+    background-color: @dangerColor;
+    box-shadow: 0 2px 2px 0 rgba(244, 67, 54, 0.14), 0 3px 1px -2px rgba(244, 67, 54, 0.2), 0 1px 5px 0 rgba(244, 67, 54, 0.12);
+    &:hover {
+      background-color: @dangerColor;
+      box-shadow: 0 14px 26px -12px rgba(244, 67, 54, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(244, 67, 54, 0.2);
+    }
+  }
+  .rose {
+    background-color: @roseColor;
+    box-shadow: 0 2px 2px 0 rgba(233, 30, 99, 0.14), 0 3px 1px -2px rgba(233, 30, 99, 0.2), 0 1px 5px 0 rgba(233, 30, 99, 0.12);
+    &:hover {
+      background-color: @roseColor;
+      box-shadow: 0 14px 26px -12px rgba(233, 30, 99, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(233, 30, 99, 0.2);
+    }
+  }
+  .white {
+    &:focus {
+      background-color: #FFFFFF;
+      color: @grayColor
+    }
+    &:hover {
+      background-color: #FFFFFF;
+      color: @grayColor
+    }
+  }
+  .simple {
+    color: #FFFFFF;
+    background: transparent;
+    box-shadow: none
+  }

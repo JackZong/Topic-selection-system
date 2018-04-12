@@ -8,6 +8,7 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 	filename: 'index.html',
 	inject: 'body'
 })
+const webpack = require('webpack')
 module.exports = {
 	entry: './src/index.js',
 	output: {
@@ -17,15 +18,19 @@ module.exports = {
 	module: {
       rules: [
         { test: /(\.js|\.jsx)$/, exclude: /node_modules/, loader: 'babel-loader' },
-        { test: /(\.less|\.css)$/, use: ExtractTextPlugin.extract({ use: [{loader: 'css-loader'}, {loader: 'less-loader',options:{javascriptEnabled: true}}], fallback: 'style-loader'})},
-        { test: /\.scss$/, use: [{ loader: 'style-loader'}, { loader: 'css-loader' }, { loader: 'sass-loader' }]}
+        { test: /(\.less|\.css)$/, use: ExtractTextPlugin.extract({ use: [{loader: 'css-loader?modules'}, {loader: 'less-loader',options:{javascriptEnabled: true}}], fallback: 'style-loader'})},
+        { test: /\.scss$/, use: [{ loader: 'style-loader'}, { loader: 'css-loader' }, { loader: 'sass-loader' }]},
+        { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] }
       ]
 	},
 	devServer: {
 		inline: true,
-		port: 8008
+		port: 8008,
+		historyApiFallback: true,
+		contentBase: './src',
+		hot: true
 	},
-	plugins:[HTMLWebpackPluginConfig,new ExtractTextPlugin( "bundle.css" )],
+	plugins:[HTMLWebpackPluginConfig,new ExtractTextPlugin( "bundle.css" ),new webpack.HotModuleReplacementPlugin()],
 	mode: 'development',
 	resolve: {
 		alias: {
@@ -34,7 +39,7 @@ module.exports = {
 			routes: `${__dirname}/src/routes`,
 			variables: __dirname + '/src/variables',
 			views: __dirname + '/src/views',
-			public: __dirname + '/public'
+			PUBLIC: __dirname + '/public'
 		}
 	}
 }

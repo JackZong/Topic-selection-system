@@ -1,4 +1,94 @@
-.big-shadow {
-  box-shadow: 0 0 8px rgba(0, 0, 0,.18),
-  0 8px 16px rgba(0, 0, 0,.36);
+@drawerWidth: 260px;
+@transition: : all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+@primaryColor: #9c27b0;
+@warningColor: #ff9800;
+@dangerColor: #f44336;
+@successColor: #4caf50;
+@infoColor: #00acc1;
+@roseColor: #e91e63;
+@grayColor: #999999;
+@md: 960px;
+@sm: 600px;
+@lg: 1280px;
+@xl: 1920px;
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.boxShadow {
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+.card {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin: 25px 0;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  border-radius: 3px;
+  color: rgba(0, 0, 0, 0.87);
+  background: #fff;
+}
+.defaultFont {
+  font-family: 'Roboto, Helvetica, Arial, sans-serif';
+  font-weight: 300;
+  line-height: 1.5em;
+}
+.primaryBoxShadow {
+  box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+}
+.infoBoxShadow {
+  box-shadow: 0 12px 20px -10px rgba(0, 188, 212, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(0, 188, 212, 0.2);
+}
+.successBoxShadow {
+  box-shadow: 0 12px 20px -10px rgba(76, 175, 80, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(76, 175, 80, 0.2);
+}
+.warningBoxShadow {
+  box-shadow: 0 12px 20px -10px rgba(255, 152, 0, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(255, 152, 0, 0.2);
+}
+.dangerBoxShadow {
+  box-shadow: 0 12px 20px -10px rgba(244, 67, 54, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(244, 67, 54, 0.2);
+}
+.orangeCardHeader {
+  background: linear-gradient(60deg, #ffa726, #fb8c00);
+  .warningBoxShadow;
+}
+.greenCardHeader {
+  background: linear-gradient(60deg, #66bb6a, #43a047);
+  .successBoxShadow;
+}
+.redCardHeader {
+  background: linear-gradient(60deg, #ef5350, #e53935);
+  .dangerBoxShadow;
+}
+.blueCardHeader {
+  background: linear-gradient(60deg, #26c6da, #00acc1);
+  .infoBoxShadow;
+}
+.purpleCardHeader {
+  background: linear-gradient(60deg, #ab47bc, #8e24aa);
+  .primaryBoxShadow;
+}
+.cardActions {
+  margin: 0 20px 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eeeeee;
+  height: auto;
+  .defaultFont;
+}
+.cardHeader {
+  margin: -20px 15px 0;
+  border-radius: 3px;
+  padding: 15px;
+}
+.defaultBoxShadow {
+  border: 0;
+  border-radius: 3px;
+  box-shadow: 0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  transition: all 150ms ease 0s;
+}
+.transition {
+  transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
 }
