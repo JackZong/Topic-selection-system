@@ -1,4 +1,7 @@
 import Dashbo from './dashboard/index'
+import Thesis from './thesis/'
+import Teacher from './teachers/'
+import Students from './student/'
 import {
   Dashboard,
   Person,
@@ -19,25 +22,25 @@ const appRoutes = [
     models: () => [require('../models/dashboard')]
   },
   {
-    path: "/user",
-    sidebarName: "User Profile",
-    navbarName: "Profile",
+    path: "/thesis",
+    sidebarName: "Thesis Info",
+    navbarName: "Thesis",
     icon: Person,
-    component: Dashbo
+    component: Thesis
   },
   {
-    path: "/table",
-    sidebarName: "Table List",
-    navbarName: "Table List",
+    path: "/teachers",
+    sidebarName: "Teacher Info",
+    navbarName: "Teacher Info",
     icon: ContentPaste,
-    component: Dashbo
+    component: Teacher
   },
   {
-    path: "/typography",
-    sidebarName: "Typography",
+    path: "/students",
+    sidebarName: "Students Info",
     navbarName: "Typography",
     icon: LibraryBooks,
-    component: Dashbo
+    component: Students
   },
   {
     path: "/icons",

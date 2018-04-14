@@ -1,0 +1,49 @@
+// ##############################
+// // // Table styles
+// #############################
+@import url("../../themes/style.less");
+  .warningTableHeader {
+    color: @warningColor;
+  }
+  .primaryTableHeader {
+    color: @primaryColor;
+  }
+  .dangerTableHeader {
+    color: @dangerColor;
+  }
+  .successTableHeader {
+    color: @successColor;
+  }
+  .infoTableHeader {
+    color: @infoColor;
+  }
+  .roseTableHeader {
+    color: @roseColor;
+  }
+  .grayTableHeader {
+    color: @grayColor;
+  }
+  .table {
+    margin-bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  .tableHeadCell {
+    color: inherit;
+    .defaultFont;
+    font-size: 1em;
+  }
+  .tableCell {
+    .defaultFont;
+    line-height: 1.42857143;
+    padding: 12px 8px;
+    vertail-align: middle;
+  }
+  .tableResponsive {
+    width: 100%;
+   // margin-top: theme.spacing.unit * 3;
+    overflow-x: auto;
+  }

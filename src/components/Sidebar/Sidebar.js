@@ -57,6 +57,7 @@ const SideBar = ({...props}) => {
                     <Link
                       to={item.path}
                       className={Style.item}
+                      activeClassName="active"
                       key={index}
                     >
                       <ListItem button className={listItemClasses}>

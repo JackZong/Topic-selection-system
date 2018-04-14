@@ -8,6 +8,8 @@ import {
   Hidden,
   Button
 } from "material-ui";
+import cx from 'classnames'
+import PropTypes from 'prop-types'
 const Header = ({...props}) => {
     function makeBrand() {
     props.routes.map((prop, key) => {
@@ -18,8 +20,13 @@ const Header = ({...props}) => {
     });
     return name;
   }
+  const { color } = props
+  const appBarClasses = cx({
+    [" " + Style[color]]: color,
+    [Style.appBar]: true
+  });
 	return (
-    <AppBar className={Style.appBar + Style.appBarClasses}>
+    <AppBar className={appBarClasses}>
       <Toolbar className={Style.container}>
         <div className={Style.flex}>
           {/* Here we create navbar brand, based on route name */}
@@ -44,4 +51,8 @@ const Header = ({...props}) => {
     </AppBar>
 	)
 }
+Header.propTypes = {
+  color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"])
+};
+
 export default Header

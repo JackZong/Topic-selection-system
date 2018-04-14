@@ -4,7 +4,7 @@
 @import url("../../themes/style.less");
   .button {
     height: 40px;
-    minWidth: 40px;
+    min-width: 40px;
     width: 40px;
     border-radius: 50%;
     font-size: 24px;
@@ -13,13 +13,13 @@
     box-shadow: 0 2px 2px 0 rgba(153, 153, 153, 0.14), 0 3px 1px -2px rgba(153, 153, 153, 0.2), 0 1px 5px 0 rgba(153, 153, 153, 0.12);
     overflow: hidden;
     position: relative;
-    lineHeight: normal;
+    line-height: normal;
     border: none;
-    fontWeight: 400;
-    textTransform: uppercase;
-    letterSpacing: 0;
-   // willChange: .boxShadow @transform;
-    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    will-change: box-shadow, transform;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1),background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     display: inline-block;
     text-align: center;
     white-space: nowrap;
@@ -84,11 +84,7 @@
     }
   }
   .white {
-    &:focus {
-      background-color: #FFFFFF;
-      color: @grayColor
-    }
-    &:hover {
+    &,&:focus,&:hover {
       background-color: #FFFFFF;
       color: @grayColor
     }

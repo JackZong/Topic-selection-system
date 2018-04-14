@@ -18,7 +18,7 @@ module.exports = {
 	module: {
       rules: [
         { test: /(\.js|\.jsx)$/, exclude: /node_modules/, loader: 'babel-loader' },
-        { test: /(\.less|\.css)$/, use: ExtractTextPlugin.extract({ use: [{loader: 'css-loader?modules'}, {loader: 'less-loader',options:{javascriptEnabled: true}}], fallback: 'style-loader'})},
+        { test: /(\.less|\.css)$/, use: ExtractTextPlugin.extract({ use: [{loader: 'css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]'}, {loader: 'less-loader',options:{javascriptEnabled: true}}], fallback: 'style-loader'})},
         { test: /\.scss$/, use: [{ loader: 'style-loader'}, { loader: 'css-loader' }, { loader: 'sass-loader' }]},
         { test: /\.(png|svg|jpg|gif)$/, use: ['file-loader'] }
       ]

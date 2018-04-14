@@ -4,20 +4,23 @@
   // [theme.breakpoints.down(md)]: {
   //   top: -15px
   // };
-  backgroundColor: transparent;
-  boxShadow: none;
-  borderBottom: 0;
-  marginBottom: 0;
+  @media screen and (max-width: @md) {
+    top: -15px;
+  }
+  background-color: transparent;
+  box-shadow: none;
+  border-bottom: 0;
+  margin-bottom: 0;
   position: absolute;
   width: 100%;
-  paddingTop: 10px;
-  zIndex: 1029;
+  padding-top: 10px;
+  z-index: 1029;
   color: #555555;
   border: 0;
-  borderRadius: 3px;
+  border-radius: 3px;
   padding: 10px 0;
   transition: all 150ms ease 0s;
-  minHeight: 50px;
+  min-height: 50px;
   display: block;
 }
 .flex {
@@ -25,10 +28,10 @@
 }
 .title {
   .defaultFont;
-  lineHeight: 30px;
-  fontSize: 18px;
-  borderRadius: 3px;
-  textTransform: none;
+  line-height: 30px;
+  font-size: 18px;
+  border-radius: 3px;
+  text-transform: none;
   color: inherit;
   top: 10px;
   &:hover {
@@ -42,27 +45,27 @@
     top: 8px;
   }
   .primary {
-    backgroundColor: @primaryColor;
+    background-color: @primaryColor;
     color: #FFFFFF;
     .defaultBoxShadow;
   }
   .info {
-    backgroundColor: @infoColor;
+    background-color: @infoColor;
     color: #FFFFFF;
     .defaultBoxShadow;
   }
   .success {
-    backgroundColor: @successColor;
+    background-color: @successColor;
     color: #FFFFFF;
     .defaultBoxShadow;
   }
   .warning {
-    backgroundColor: @warningColor;
+    background-color: @warningColor;
     color: #FFFFFF;
     .defaultBoxShadow;
   }
   .danger {
-    backgroundColor: @dangerColor;
+    background-color: @dangerColor;
     color: #FFFFFF;
     .defaultBoxShadow;
   }
