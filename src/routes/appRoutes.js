@@ -1,8 +1,3 @@
-import Dashbo from './dashboard/index'
-import Thesis from './thesis/'
-import Teacher from './teachers/'
-import Students from './student/'
-import Login from './Login'
 import {
   Dashboard,
   Person,
