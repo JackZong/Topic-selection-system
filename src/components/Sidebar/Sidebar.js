@@ -45,6 +45,9 @@ const SideBar = ({...props}) => {
               <List className={Style.list}>
               {
                 routes.map((item,index,arr) => {
+                  if (item.path === '/login') {
+                    return null;
+                  }
                   const listItemClasses = cx({
                     [" " + Style[color]]: activeRoute(item.path),
                     [Style.itemLink]: true

@@ -1,8 +1,8 @@
 import dva from 'dva'
 import createLoading from 'dva-loading'
-import appModel from './models/app'
 import createHistory from 'history/createBrowserHistory'
 import Routers from './router'
+import appModel from './models/app'
 // 1.Initialize
 const app = dva({
   history: createHistory()
@@ -10,5 +10,6 @@ const app = dva({
 // 2.Model
 app.use(createLoading())
 // 3.Router
+app.model(appModel)
 app.router(require('./router').default)
 app.start('#app')

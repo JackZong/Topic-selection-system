@@ -2,6 +2,7 @@ import Dashbo from './dashboard/index'
 import Thesis from './thesis/'
 import Teacher from './teachers/'
 import Students from './student/'
+import Login from './Login'
 import {
   Dashboard,
   Person,
@@ -18,7 +19,7 @@ const appRoutes = [
     sidebarName: "Dashboard",
     navbarName: "Material Dashboard",
     icon: Dashboard,
-    component: Dashbo,
+    component: () => require('./dashboard/'),
     models: () => [require('../models/dashboard')]
   },
   {
@@ -26,42 +27,47 @@ const appRoutes = [
     sidebarName: "Thesis Info",
     navbarName: "Thesis",
     icon: Person,
-    component: Thesis
+    component: () => require('./thesis/')
   },
   {
     path: "/teachers",
     sidebarName: "Teacher Info",
     navbarName: "Teacher Info",
     icon: ContentPaste,
-    component: Teacher
+    component: () => require('./thesis/')
   },
   {
     path: "/students",
     sidebarName: "Students Info",
     navbarName: "Typography",
     icon: LibraryBooks,
-    component: Students
+    component: () => require('./thesis/')
   },
   {
     path: "/icons",
     sidebarName: "Icons",
     navbarName: "Icons",
     icon: BubbleChart,
-    component: Dashbo
+    component: () => require('./thesis/')
   },
   {
     path: "/maps",
     sidebarName: "Maps",
     navbarName: "Map",
     icon: LocationOn,
-    component: Dashbo
+    component: () => require('./thesis/')
   },
   {
     path: "/notifications",
     sidebarName: "Notifications",
     navbarName: "Notifications",
     icon: Notifications,
-    component: Dashbo
+    component: () => require('./thesis/')
+  },
+  {
+    path: "/login",
+    component: () => require('./login/'),
+    models: () => [require('../models/login')]
   }
 ];
 
