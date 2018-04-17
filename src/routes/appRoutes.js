@@ -22,7 +22,8 @@ const appRoutes = [
     sidebarName: "Thesis Info",
     navbarName: "Thesis",
     icon: Person,
-    component: () => require('./thesis/')
+    component: () => require('./thesis/'),
+    models: () => [require('../models/thesis')]
   },
   {
     path: "/teachers",

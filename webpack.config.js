@@ -30,7 +30,13 @@ module.exports = {
 		contentBase: './src',
 		hot: true
 	},
-	plugins:[HTMLWebpackPluginConfig,new ExtractTextPlugin( "bundle.css" ),new webpack.HotModuleReplacementPlugin()],
+	plugins:[
+	  HTMLWebpackPluginConfig,
+	  new ExtractTextPlugin( "bundle.css" ),
+	  new webpack.HotModuleReplacementPlugin(),
+	  new webpack.DefinePlugin({
+        'API': JSON.stringify('http://127.0.0.1:3000/api')
+	  })],
 	mode: 'development',
 	resolve: {
 		alias: {

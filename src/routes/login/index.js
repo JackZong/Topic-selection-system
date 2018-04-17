@@ -13,8 +13,8 @@ class Login extends React.Component {
     this.props.dispatch({
       type: 'login/checklogin',
       payload: {
-        username: 'jack',
-        password: '123456'
+        username: this.refs.username.value,
+        password: this.refs.password.value
       }
     })
   }
@@ -90,7 +90,7 @@ class Login extends React.Component {
                                                   </span>
                                                   <div class="form-group label-floating">
                                                       <label class="control-label">用户名</label>
-                                                      <input type="text" class="form-control" formControlName="username" />
+                                                      <input type="text" class="form-control" formControlName="username" ref="username" />
                                                   </div>
                                               </div>
                                               <div class="input-group">
@@ -99,7 +99,7 @@ class Login extends React.Component {
                                                   </span>
                                                   <div class="form-group label-floating">
                                                       <label class="control-label">密码</label>
-                                                      <input type="password" class="form-control" formControlName="password" />
+                                                      <input type="password" class="form-control" formControlName="password" ref="password" />
                                                   </div>
                                               </div>
                                           </div>

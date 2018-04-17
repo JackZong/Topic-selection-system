@@ -8,7 +8,13 @@ export default {
 	},
 	effects: {
       *checklogin({ payload }, { call, put, select }){
-      	console.log(login)
+      	let data = yield call(login,payload)
+      	console.log(data)
+      	if (data.code === 1) {
+      	  yield put(routerRedux.push('/dashboard'))
+      	} else {
+
+      	}
       }
 	},
 	reducers: {
