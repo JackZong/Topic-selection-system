@@ -2,7 +2,7 @@ import { list } from '../services/thesis'
 export default {
 	namespace: 'thesis',
 	state: {
-
+     list: []
 	},
 	subscriptions: {
       setup({ dispatch, history }) {
@@ -21,12 +21,23 @@ export default {
 	effects: {
       *queryList({ payload },{ call, put, select }){
          let data = yield call(list,payload)
-         if(data) {
-         	
+         if(data.code) {
+         	yield put({
+               type: 'queryListSuccess',
+               payload: {
+                  list: data.data
+               }
+            })
          }
       }
 	},
 	reducers: {
-
+     queryListSuccess(state,action) {
+      const { list } = action.payload
+       return {
+         ...state,
+         list
+       }
+     }
 	}
 }

@@ -11,18 +11,22 @@ import {
 	Assignment,
   Add
 } from 'material-ui-icons'
-const Thesis = ({location,dispatch}) => {
-  console.log(dispatch)
+const Thesis = ({ location, dispatch, thesis }) => {
+  const { list } = thesis
+  let order = ['th_id','th_name','mentor.mt_name','ThesisField.thf_field','ThesisLevel.thl_level','th_maxnum','th_state']
+  let data = []
+  for(let i of list) {
+    let arr = []
+    for(let j in i) {
+      arr[order.indexOf(j)] = i[j]
+    }
+    data.push(arr)
+  }
+  console.log(data)
   var Actions = (
    <IconButton color="primary">
     <Add/>
    </IconButton>
-  )
-  var name = (
-   <div>
-   <Avatar style={{float:'left'}}>数</Avatar>
-    <span style={{float:'left'}}>Metaslpoit网络攻击平台的应用研究</span>
-   </div>
   )
 	return (
       <div>
@@ -30,15 +34,8 @@ const Thesis = ({location,dispatch}) => {
         content={
           <Table
             tableHeaderColor="primary"
-            tableHead={["ID","Name", "Mentor", "Max","State","Actions"]}
-            tableData={[
-              [name, "Niger", "Oud-Turnhout", "$36,738",Actions],
-              ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
-              ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
-              ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
-              ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
-              ["Mason Porter", "Chile", "Gloucester", "$78,615"]
-            ]}
+            tableHead={["ID","Name", "Mentor", "Field","Level","Max","State","Actions"]}
+            tableData={data}
           />}
           cardTitle="标题"
           cardIcon={Assignment}/>
@@ -46,4 +43,7 @@ const Thesis = ({location,dispatch}) => {
 
 	)
 }
-export default connect()(Thesis)
+function mapStateToProps({ thesis }){
+  return { thesis }
+}
+export default connect(mapStateToProps)(Thesis)
