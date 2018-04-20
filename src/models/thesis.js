@@ -1,13 +1,19 @@
-import { list } from '../services/thesis'
+import { list, selectThesis } from '../services/thesis'
 export default {
 	namespace: 'thesis',
 	state: {
-     list: []
+     list: [],
+     page: {
+      page: 0, //current page
+      count: 50, //total
+      page_limit: 20
+     }
 	},
 	subscriptions: {
       setup({ dispatch, history }) {
       	history.listen((location) => {
       		if(location.pathname === '/thesis'){
+            console.log(location)
       		  dispatch({
       		  	type: 'queryList',
       		  	payload: {
@@ -25,18 +31,26 @@ export default {
          	yield put({
                type: 'queryListSuccess',
                payload: {
-                  list: data.data
+                  list: data.data,
+                  page: data.page
                }
             })
          }
+      },
+      *preselAdd({ payload },{ call, put, select }) {
+        let data = yield call(selectThesis, payload)
+        console.log(data)
       }
 	},
 	reducers: {
      queryListSuccess(state,action) {
-      const { list } = action.payload
+      const { list, page } = action.payload
        return {
          ...state,
-         list
+         list,
+         page: {
+           ...page
+         }
        }
      }
 	}

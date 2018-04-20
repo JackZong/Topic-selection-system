@@ -1,7 +1,14 @@
 import Request from '../utils/request'
-const list = () => {
+const list = (payload) => {
   return Request('/thesis/list',{
-  	method: 'GET'
+  	method: 'GET',
+  	data: payload
   })
 }
-export { list }
+const selectThesis = (payload) => {
+	return Request('/presel/add', {
+		method: 'PUT',
+		data: payload
+	})
+}
+export { list, selectThesis }

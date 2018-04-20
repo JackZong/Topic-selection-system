@@ -10,15 +10,24 @@ import Style from '../themes/app.less'
 import JssProvider from 'react-jss/lib/JssProvider';
 import { create } from 'jss';
 import { createGenerateClassName, jssPreset } from 'material-ui/styles';
+import NProgress from 'nprogress'
 const generateClassName = createGenerateClassName();
 const jss = create(jssPreset());
 // We define a custom insertion point that JSS will look for injecting the styles in the DOM.
 jss.options.insertionPoint = 'jss-insertion-point';
-
+let lastHref 
 const App = ({ children, dispatch, app, loading, location }) => {
-	console.log(location)
 	const HeaderProps = {
 	  routes: AppRoutes
+	}
+	console.log(loading.loading.global)
+	let href = window.location.href
+	if(lastHref !== href){
+      NProgress.start()
+      if(!loading.loading.global) {
+      	  NProgress.done()
+      	  lastHref = href
+      	}
 	}
 	return (
 	<JssProvider jss={jss} generateClassName={generateClassName}>
@@ -42,4 +51,4 @@ const App = ({ children, dispatch, app, loading, location }) => {
 	  </JssProvider>
 	)
 }
-export default withRouter(connect()(App))
+export default withRouter(connect((loading,app)=>({loading,app}))(App))

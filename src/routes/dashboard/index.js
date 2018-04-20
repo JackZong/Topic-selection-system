@@ -15,9 +15,8 @@ import {
 import { Grid } from "material-ui";
 import Style from './dashboard.less'
 import ItemGrid from 'components/Grid/ItemGrid'
-console.log(ItemGrid)
+import NProgress from 'nprogress'
 const Dashboard = () => {
-
   return (
   	<div>
      <Grid container>
