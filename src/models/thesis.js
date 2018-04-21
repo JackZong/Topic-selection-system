@@ -5,7 +5,7 @@ export default {
      list: [],
      page: {
       page: 0, //current page
-      count: 50, //total
+      count: 500, //total
       page_limit: 20
      }
 	},

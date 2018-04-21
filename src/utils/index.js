@@ -9,7 +9,7 @@ function setCookie(name,value,expires){
   document.cookie = name + '=' + escape(value) + (expiresTime ? ';expires=' + expiresTime : '') 
 }
 function getCookies() {
-  let cookies = document.cookie
+  let cookies = document.cookie.replace(/\s/g,'')
   let cookiesArr = cookies.split(';')
   let obj = {}
   cookiesArr.forEach((item,index,arr) => {
@@ -18,7 +18,11 @@ function getCookies() {
   })
   return obj
 }
+function genTableData(order,list){
+
+}
 export {
 	setCookie,
-	getCookies
+	getCookies,
+  genTableData
 }

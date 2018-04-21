@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import Style from './regularcard.less'
 import cx from 'classnames'
 const RegularCard = ({...props}) => {
-	const { title, icon, content, plainCard, headerColor, cardTitle, cardIcon } = props
+	const { content, plainCard, headerColor, cardTitle, cardIcon } = props
 	const plainCardClasses = cx({
 	  [" " + Style.cardPlain]: plainCard,
 	  [Style.card]: true
@@ -40,13 +40,12 @@ const RegularCard = ({...props}) => {
 RegularCard.defaultProps = {
 	headerColor: "purple"
 }
-RegularCard.PropTypes = {
+RegularCard.propTypes = {
   plainCard: PropTypes.bool,
   headerColor: PropTypes.oneOf(["orange","green","red","blue","purple"]),
   cardTitle: PropTypes.node,
   cardSubtitle: PropTypes.node,
   content: PropTypes.node,
-  footer: PropTypes.node,
-  cardIcon: PropTypes.node
+  footer: PropTypes.node
 }
 export default RegularCard

@@ -14,15 +14,14 @@ import {
 	Assignment,
   Add
 } from 'material-ui-icons'
-console.log(getCookies())
 const Thesis = ({ location, dispatch, thesis }) => {
   const { list, page } = thesis
   let order = ['th_id','th_name','mentor.mt_name','ThesisField.thf_field','ThesisLevel.thl_level','th_maxnum','th_state']
   let data = []
-  const addThesis = (id) =>{
-    console.log(e)
+  const addThesis = (obj) => {
+    console.log(obj)
   }
-  var Actions = (id) => {
+  var Actions = (obj) => {
     return ( 
       <IconButton color="primary" onClick={(obj) => addThesis(obj)}>
         <Add/>
@@ -34,15 +33,17 @@ const Thesis = ({ location, dispatch, thesis }) => {
     let id 
     let mt_id
     for(let j in i) {
-      arr[order.indexOf(j)] = i[j]
+      if(order.indexOf(j) !== -1){
+        arr[order.indexOf(j)] = i[j]
+      }
       if (j === 'th_id') {
         id = i[j]
       }
-      if(j === 'mt_id') {
-        mt_id = i[j]
+      if(j === 'th_mt_id') {
+        mt_id = i[j].replace(/\s/g,'')
       }
     }
-    arr.push(Actions({id: id,mt_id:mt_id}))
+    arr.push(Actions({id: id,mt_id:mt_id,s_id:getCookies().username}))
     data.push(arr)
   }
   const handleChangePage = (e,num) => {
@@ -76,7 +77,7 @@ const Thesis = ({ location, dispatch, thesis }) => {
             page={page}
             handleChangeRowsPerPage={handleChangeRowsPerPage}
             handleChangePage={handleChangePage}
-            actions={Actions}
+            paginationShow={true}
           />}
           cardTitle="标题"
           cardIcon={Assignment}/>

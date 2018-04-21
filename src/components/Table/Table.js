@@ -15,8 +15,8 @@ import PropTypes from "prop-types";
 import Style from "./table.less";
 
 function CustomTable({ ...props }) {
-  const { tableHead, tableData, tableHeaderColor, page, handleChangePage, handleChangeRowsPerPage, actions } = props;
-  console.log(actions)
+  const { tableHead, tableData, tableHeaderColor, page, handleChangePage, handleChangeRowsPerPage,paginationShow } = props;
+  console.log(page)
   return (
     <div className={Style.tableResponsive}>
       <Table className={Style.table}>
@@ -37,7 +37,7 @@ function CustomTable({ ...props }) {
           </TableHead>
         ) : null}
         <TableBody>
-          {tableData.map((prop, key) => {
+          {tableData.length ? tableData.map((prop, key) => {
             return (
               <TableRow key={key}>
                 {prop.map((prop, key) => {
@@ -49,9 +49,15 @@ function CustomTable({ ...props }) {
                 })}
               </TableRow>
             );
-          })}
+          }) : (
+            <TableRow>
+               <TableCell colSpan={12} className={Style.tableCellPlain}>
+                 no data
+               </TableCell>
+            </TableRow>
+          )}
         </TableBody>
-        <TableFooter>
+        {paginationShow ? <TableFooter>
           <TableRow>
             <TablePagination
                colSpan={3}
@@ -63,7 +69,7 @@ function CustomTable({ ...props }) {
                onChangeRowsPerPage={handleChangeRowsPerPage}
              />
           </TableRow>
-        </TableFooter>
+        </TableFooter> : null}
       </Table>
     </div>
   );
@@ -83,8 +89,8 @@ CustomTable.propTypes = {
     "rose",
     "gray"
   ]),
-  tableHead: PropTypes.arrayOf(PropTypes.string),
-  tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
-};
+  tableHead: PropTypes.arrayOf(PropTypes.string)
+/*  tableData: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string))
+*/};
 
 export default CustomTable;

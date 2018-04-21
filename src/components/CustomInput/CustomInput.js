@@ -10,7 +10,6 @@ import Style from "./customInput.less";
 function CustomInput({ ...props }) {
   console.log(props.classes)
   const {
-    classes,
     formControlProps,
     labelText,
     id,
@@ -50,8 +49,7 @@ function CustomInput({ ...props }) {
         classes={{
           root: marginTop,
           disabled: Style.disabled,
-          underline: Style.underline,
-          inkbar: inkbarClasses
+          underline: Style.underline
         }}
         id={id}
         {...inputProps}
@@ -66,7 +64,6 @@ function CustomInput({ ...props }) {
 }
 
 CustomInput.propTypes = {
-  classes: PropTypes.object.isRequired,
   labelText: PropTypes.node,
   labelProps: PropTypes.object,
   id: PropTypes.string,

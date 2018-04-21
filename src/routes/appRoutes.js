@@ -5,7 +5,8 @@ import {
   LibraryBooks,
   BubbleChart,
   LocationOn,
-  Notifications
+  Notifications,
+  Explore
 } from "material-ui-icons";
 
 const appRoutes = [
@@ -26,25 +27,28 @@ const appRoutes = [
     models: () => [require('../models/thesis')]
   },
   {
-    path: "/teachers",
-    sidebarName: "Teacher Info",
-    navbarName: "Teacher Info",
+    path: "/thesisapply",
+    sidebarName: "Thesis Apply",
+    navbarName: "Thesis Apply",
     icon: ContentPaste,
-    component: () => require('./thesis/')
+    component: () => require('./thesisapply/'),
+    models: () => [require('../models/thesisapply')]
   },
   {
-    path: "/students",
+    path: "/student",
     sidebarName: "Students Info",
-    navbarName: "Typography",
+    navbarName: "Student Info Center",
     icon: LibraryBooks,
-    component: () => require('./thesis/')
+    component: () => require('./student/'),
+    models: () => [require('../models/student')]
   },
   {
-    path: "/icons",
-    sidebarName: "Icons",
-    navbarName: "Icons",
+    path: "/thesispresel",
+    sidebarName: "Pre Selection",
+    navbarName: "Pre Selection",
     icon: BubbleChart,
-    component: () => require('./thesis/')
+    component: () => require('./thesispresel/'),
+    models: () => [require('../models/thesispresel')]
   },
   {
     path: "/maps",
@@ -54,11 +58,12 @@ const appRoutes = [
     component: () => require('./thesis/')
   },
   {
-    path: "/notifications",
-    sidebarName: "Notifications",
-    navbarName: "Notifications",
-    icon: Notifications,
-    component: () => require('./thesis/')
+    path: "/logs",
+    sidebarName: "Login Log",
+    navbarName: "Login Log",
+    icon: Explore,
+    component: () => require('./logs/'),
+    models: () => [require('../models/logs')]
   },
   {
     path: "/login",

@@ -1,5 +1,4 @@
-const request = function(url, options){
-	console.log(options)
+const request = function(url, options, otherApi = false){
 	return new Promise(function(resolve,reject){
 	 	var xhr = new XMLHttpRequest()
 	 	xhr.onreadystatechange = function(){
@@ -12,10 +11,12 @@ const request = function(url, options){
 	 		  reject(new Error(xhr.statusText))
 	 		}
 	 	}
-	 	if(options.method === 'GET') {
+	 	if(options.method === 'GET' && !otherApi) {
 	 		xhr.open(options.method, API + url + location.search, true)
+	 	} else if(otherApi) {
+	 		xhr.open(options.method, url, true)
 	 	} else {
-	 		xhr.open(options.method, API + url+'?page=1', true)
+	 		xhr.open(options.method, API + url, true)
 	 	}
 	 	xhr.setRequestHeader('Content-Type','application/json;charset=utf-8')
 	 	xhr.send(JSON.stringify(options.data))
