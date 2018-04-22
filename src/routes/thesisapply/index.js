@@ -25,7 +25,6 @@ const { ThesisLevel, ThesisField } = constant
 let now = new Date()
 const ThesisApply = ({dispatch,location,thesisapply}) => {
   const { list, page, modalShow, record, editModal } = thesisapply
-  console.log(record,'record')
   const handleChangePage = () => {
 
   }
@@ -203,7 +202,7 @@ const ThesisApply = ({dispatch,location,thesisapply}) => {
         }
       }
     }
-    arr.push(<Button variant='fab' color='secondary' aria-label='edit' disabled={disabled} className={Style.btnedit} onClick={()=>showEdit(arr)}><Edit/></Button>)
+    arr.push(<Button variant='fab' color='secondary' aria-label='edit' disabled={disabled} className="btnedit" onClick={()=>showEdit(arr)}><Edit/></Button>)
     data.push(arr)
   }
   const showEdit = (record) => {

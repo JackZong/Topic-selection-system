@@ -20,14 +20,16 @@ const Thesispresel = ({location,dispatch,thesispresel}) => {
   		let arr = []
   		let disabled = false
   		for(let i in item) {
-           arr[order.indexOf(i)] = item[i]
-           if(i === 'psr_state') {
-           	if(item[i] === 'D') {
-           		disabled = true
-           	}
-           }
+        if(order.indexOf(i) !== -1) {
+          arr[order.indexOf(i)] = item[i]
+          if(i === 'psr_state') {
+            if(item[i] === 'D') {
+              disabled = true
+            }
+          }
+        }
   		}
-  		arr.push(<Button variant='fab' color='secondary' aria-label='edit' disabled={disabled} className="btnedit" onClick={()=>showEdit(arr)}><Edit/></Button>)
+  		arr.push(<Button variant='fab' color='secondary' aria-label='edit' disabled={disabled} className="btnedit" onClick={()=>showEdit(item)}><Edit/></Button>)
   		data.push(arr)
   		return item
   	})

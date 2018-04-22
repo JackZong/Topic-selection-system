@@ -5,10 +5,4 @@ function queryList(payload) {
 		data: payload
 	})
 }
-function updatePre(payload) {
-	return Request('/preselection/update',{
-		method: 'PUT',
-		data: payload
-	})
-}
-export { queryList, updatePre }
+export { queryList }

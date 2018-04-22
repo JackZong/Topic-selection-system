@@ -51,11 +51,12 @@ const appRoutes = [
     models: () => [require('../models/thesispresel')]
   },
   {
-    path: "/maps",
-    sidebarName: "Maps",
-    navbarName: "Map",
+    path: "/mythesis",
+    sidebarName: "My Thesis",
+    navbarName: "My Thesis",
     icon: LocationOn,
-    component: () => require('./thesis/')
+    component: () => require('./mythesis/'),
+    models: () =>[require('../models/mythesis')]
   },
   {
     path: "/logs",

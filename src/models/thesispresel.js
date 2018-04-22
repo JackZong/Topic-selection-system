@@ -1,5 +1,6 @@
-import { queryList } from '../services/thesispresel'
+import { queryList, updatePre } from '../services/thesispresel'
 import { getCookies } from '../utils/'
+import Swal from 'sweetalert2'
 export default {
   namespace: 'thesispresel',
   state: {
@@ -38,7 +39,32 @@ export default {
   				}
   			})
   		}
-  	}
+  	},
+    *updatePre({payload},{ call, put, select }) {
+      let res = yield call(updatePre,payload)
+      if(res.code === 1) {
+        yield put({
+          type: 'hideEditModal'
+        })
+        yield put({
+          type: 'queryList',
+          payload: {
+            username: payload.mt_id
+          }
+        })
+        Swal({
+          title: 'Update Success!',
+          type: 'success',
+          timer: 2000
+        })
+      } else {
+        Swal({
+          title: 'Update Failed!',
+          type: 'error',
+          timer: 2000
+        })
+      }
+    }
   },
   reducers: {
   	queryListSuccess(state,action) {

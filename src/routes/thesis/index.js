@@ -8,24 +8,65 @@ import { getCookies } from '../../utils/'
 import {
 	Card,
   IconButton,
-  Avatar
+  Avatar,
+  Button
 } from 'material-ui'
 import {
 	Assignment,
   Add
 } from 'material-ui-icons'
+import swal from 'sweetalert2'
 const Thesis = ({ location, dispatch, thesis }) => {
   const { list, page } = thesis
   let order = ['th_id','th_name','mentor.mt_name','ThesisField.thf_field','ThesisLevel.thl_level','th_maxnum','th_state']
   let data = []
   const addThesis = (obj) => {
     console.log(obj)
+    swal({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: false,
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        dispatch({
+          type: 'thesis/preselAdd',
+          payload: {
+            st_id: obj.s_id,
+            mt_id: obj.mt_id,
+            th_id: obj.id
+          }
+        })
+        swal(
+          'Submit!',
+          'Your thesis has been selection',
+          'success'
+        )
+      } else if (
+        // Read more about handling dismissals
+        result.dismiss === swal.DismissReason.cancel
+      ) {
+        swal(
+          'Cancelled',
+          'Your imaginary file is safe :)',
+          'error'
+        )
+      }
+    })
   }
   var Actions = (obj) => {
     return ( 
-      <IconButton color="primary" onClick={(obj) => addThesis(obj)}>
+      <Button variant='fab' color='secondary' aria-label='edit' className="btnedit" onClick={() => addThesis(obj)}>
         <Add/>
-      </IconButton>
+      </Button>
     )
   }
   for(let i of list) {

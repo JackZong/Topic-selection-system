@@ -6,7 +6,7 @@ const list = (payload) => {
   })
 }
 const selectThesis = (payload) => {
-	return Request('/presel/add', {
+	return Request('/preselection/add', {
 		method: 'PUT',
 		data: payload
 	})

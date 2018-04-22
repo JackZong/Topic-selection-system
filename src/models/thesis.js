@@ -39,7 +39,11 @@ export default {
       },
       *preselAdd({ payload },{ call, put, select }) {
         let data = yield call(selectThesis, payload)
-        console.log(data)
+        if(data.code === 1) {
+
+        } else {
+          alert("Please don't submit again")
+        }
       }
 	},
 	reducers: {

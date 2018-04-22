@@ -22,20 +22,40 @@ const { PsrState } = constant
 class EditModal extends React.Component {
 	constructor(props){
 	  super(props)
+	  console.log(this.props)
 	  this.state = {
-	  	psr_state: this.props.record ? this.props.record.psr_state : null,
+	  	psr_state: this.props.thesispresel.record ? this.props.thesispresel.record.psr_state : null,
 	  	open: this.props.open,
-	  	dispatch: this.props.dispatch
+	  	dispatch: this.props.dispatch,
+	  	st_id: this.props.thesispresel.record ? this.props.thesispresel.record.st_id : null,
+	  	mt_id: this.props.thesispresel.record ? this.props.thesispresel.record.mt_id : null,
+	  	th_id: this.props.thesispresel.record ? this.props.thesispresel.record.th_id : null
 	  }
-	  console.log(this,props)
 	}
 	handChange = (name) => (event) => {
 		this.setState({
-        [name]: event.target.value
+         [name]: event.target.value
 		})
 	}
 	onOk = () => {
-  
+		console.log(this.state,'onok')
+		this.props.dispatch({
+			type: 'thesispresel/updatePre',
+			payload: {
+				psr_state: this.state.psr_state,
+				st_id: this.state.st_id,
+				mt_id: this.state.mt_id,
+				th_id: this.state.th_id
+			}
+		}) 
+		if(this.state.psr_state === 'D') {
+			dispatch({
+				type: 'thesispresel/update',
+				payload: {
+					psr_state: this.state.psr_state
+				}
+			}) 
+		}
 	}
 	onCancel = () => {
       this.state.dispatch({
@@ -43,10 +63,14 @@ class EditModal extends React.Component {
       })
 	}
   componentWillReceiveProps(nextProps) {
-  	console.log(nextProps,'jjjj')
-    this.setState({
-      open: nextProps.thesispresel.editModal
-    })
+  	if(nextProps.thesispresel.record) {
+      this.setState({
+        open: nextProps.thesispresel.editModal,
+        st_id: nextProps.thesispresel.record.st_id,
+        mt_id: nextProps.thesispresel.record.mt_id,
+        th_id: nextProps.thesispresel.record.th_id
+      })
+  	}
   }
 	render() {
 	  const { psr_state, open } = this.state
@@ -76,7 +100,7 @@ class EditModal extends React.Component {
 	  	 </DialogContent>
 	  	 <DialogActions>
 	  	   <Button color="primary" onClick={this.onCancel}>Cancel</Button>
-	  	   <Button color="primary" onClick={this.onOk(this.state)}>Submit</Button>
+	  	   <Button color="primary" onClick={()=>this.onOk()}>Submit</Button>
 	  	 </DialogActions>
 	  	</Dialog>
 	  )

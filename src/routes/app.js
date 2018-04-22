@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'dva'
-import { withRouter } from 'dva/router'
+import { withRouter,routerRedux } from 'dva/router'
 import Sidebar from '../components/Sidebar/Sidebar'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
@@ -15,12 +15,23 @@ const generateClassName = createGenerateClassName();
 const jss = create(jssPreset());
 // We define a custom insertion point that JSS will look for injecting the styles in the DOM.
 jss.options.insertionPoint = 'jss-insertion-point';
+import { getCookies } from '../utils/'
+import Swal from 'sweetalert2'
 let lastHref 
 const App = ({ children, dispatch, app, loading, location }) => {
+	if(!getCookies().username) {
+      Swal({
+      	title: 'Please Login Again!',
+      	type: 'error',
+      	timer: 2000
+      })
+      dispatch(routerRedux.push({
+      	pathname: '/login'
+      }))
+	}
 	const HeaderProps = {
 	  routes: AppRoutes
 	}
-	console.log(loading.loading.global)
 	let href = window.location.href
 	if(lastHref !== href){
       NProgress.start()
