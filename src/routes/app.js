@@ -44,7 +44,7 @@ const App = ({ children, dispatch, app, loading, location }) => {
 	<JssProvider jss={jss} generateClassName={generateClassName}>
 	  <div className={Style.wrapper}>
 	    <Sidebar 
-	      logoText="Material Design"
+	      logoText="Thesis System"
 	      routes={AppRoutes}
 	      location={location}
 	      color="blue"
