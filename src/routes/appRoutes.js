@@ -6,17 +6,26 @@ import {
   BubbleChart,
   LocationOn,
   Notifications,
-  Explore
+  Explore,
+  Profile
 } from "material-ui-icons";
 
 const appRoutes = [
   {
     path: "/dashboard",
     sidebarName: "Dashboard",
-    navbarName: "Material Dashboard",
+    navbarName: "Dashboard",
     icon: Dashboard,
     component: () => require('./dashboard/'),
     models: () => [require('../models/dashboard')]
+  },
+  {
+    path: "/profile",
+    sidebarName: "Profile",
+    navbarName: "Profile",
+    icon: Person,
+    component: () => require('./profile/'),
+    models: () => [require('../models/profile')]
   },
   {
     path: "/thesis",
@@ -49,6 +58,14 @@ const appRoutes = [
     icon: BubbleChart,
     component: () => require('./thesispresel/'),
     models: () => [require('../models/thesispresel')]
+  },
+  {
+    path: "/thesischeck",
+    sidebarName: "Thesis Check",
+    navbarName: "Thesis Check",
+    icon: BubbleChart,
+    component: () => require('./thesischeck/'),
+    models: () => [require('../models/thesischeck')]
   },
   {
     path: "/mythesis",

@@ -34,7 +34,7 @@ const Dashboard = ({dashboard}) => {
                     <div className="card-footer">
                         <div className="stats">
                             <i className="material-icons text-danger">warning</i>
-                            <a href="#pablo">Get More Space...</a>
+                            <a href="#pablo">Just Count By 2018</a>
                         </div>
                     </div>
                 </div>
@@ -46,11 +46,11 @@ const Dashboard = ({dashboard}) => {
                     </div>
                     <div className="card-content">
                         <p className="category">Website Visits</p>
-                        <h3 className="card-title">75.521</h3>
+                        <h3 className="card-title">null</h3>
                     </div>
                     <div className="card-footer">
                         <div className="stats">
-                            <i className="material-icons">local_offer</i> Tracked from Google Analytics
+                            <i className="material-icons">local_offer</i> Tracked from Baidu Analytics
                         </div>
                     </div>
                 </div>
@@ -58,15 +58,15 @@ const Dashboard = ({dashboard}) => {
             <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="card card-stats">
                     <div className="card-header" data-background-color="green">
-                        <i className="material-icons">store</i>
+                        <i className="material-icons">person</i>
                     </div>
                     <div className="card-content">
-                        <p className="category">Revenue</p>
-                        <h3 className="card-title">$34,245</h3>
+                        <p className="category">Users</p>
+                        <h3 className="card-title">745</h3>
                     </div>
                     <div className="card-footer">
                         <div className="stats">
-                            <i className="material-icons">date_range</i> Last 24 Hours
+                            <i className="material-icons">date_range</i> 
                         </div>
                     </div>
                 </div>
@@ -77,8 +77,8 @@ const Dashboard = ({dashboard}) => {
                         <i className="fa fa-twitter"></i>
                     </div>
                     <div className="card-content">
-                        <p className="category">Followers</p>
-                        <h3 className="card-title">+245</h3>
+                        <p className="category">Thesis Selected</p>
+                        <h3 className="card-title">98%</h3>
                     </div>
                     <div className="card-footer">
                         <div className="stats">
@@ -141,7 +141,7 @@ const Dashboard = ({dashboard}) => {
                     </div>
                 </div>
             </div>
-            <div className="row">
+           {/* <div className="row">
                 <div className="col-md-4">
                     <div className="card card-chart">
                         <div className="card-header" data-background-color="rose" data-header-animation="true">
@@ -224,8 +224,8 @@ const Dashboard = ({dashboard}) => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <h3>Manage Listings</h3>
+            </div>*/}
+       {/*     <h3>Manage Listings</h3>
             <br/>
             <div className="row">
                 <div className="col-md-4">
@@ -345,7 +345,7 @@ const Dashboard = ({dashboard}) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*/}
         </div>
     </div>
   )

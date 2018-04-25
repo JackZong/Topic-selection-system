@@ -18,11 +18,8 @@ function getCookies() {
   })
   return obj
 }
-function genTableData(order,list){
 
-}
 export {
 	setCookie,
-	getCookies,
-  genTableData
+	getCookies
 }
