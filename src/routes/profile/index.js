@@ -6,8 +6,26 @@ import qs from 'query-string'
 import {
   AccountBox
 } from 'material-ui-icons'
+import {
+  TextField
+} from 'material-ui'
 const Profile = ({location,dispatch,profile}) => {
 	const { list } = profile
+  console.log(list.st_introduce,'introll')
+  const submit = (e) => {
+    e.preventDefault()
+    let intro = document.getElementById('intro').value
+    if(intro) {
+      dispatch({
+        type: 'profile/updateProfile',
+        payload: {
+          st_introduce: intro,
+          username: list.st_id
+        }
+      })
+      localStorage.setItem('intro',intro)
+    }
+  }
 	return (
       <div class="content">
           <div class="container-fluid">
@@ -21,7 +39,7 @@ const Profile = ({location,dispatch,profile}) => {
                               <h4 class="card-title">Edit Profile -
                                   <small class="category">Complete your profile</small>
                               </h4>
-                              <form action="http://127.0.0.1:3000/api/profile" method="PUT" >
+                              <form>
                                   <div class="row">
                                       <div class="col-md-5">
                                           <div class="form-group label-floating">
@@ -81,13 +99,14 @@ const Profile = ({location,dispatch,profile}) => {
                                           <div class="form-group">
                                               <label>About Me</label>
                                               <div class="form-group label-floating">
-                                                  <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                                  <textarea class="form-control" rows="5" value={list.st_introduce}></textarea>
+                                                <label class="control-label"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
+                                                <textarea class="form-control" rows="5" id="intro">{localStorage.getItem('intro')}</textarea>
+
                                               </div>
                                           </div>
                                       </div>
                                   </div>
-                                  <button type="submit" class="btn btn-rose pull-right">Update Profile</button>
+                                  <button type="submit" class="btn btn-rose pull-right" onClick={submit}>Update Profile</button>
                                   <div class="clearfix"></div>
                               </form>
                           </div>

@@ -15,10 +15,9 @@ import qs from 'query-string'
 import EditForm from './editmodal.js'
 const ThesisCheck = ({ location, dispatch, thesischeck }) => {
 	const { list,page } = thesischeck
-	let order = ['th_id','th_name','mentor.mt_name','ThesisField.thf_field','ThesisLevel.thl_level','th_maxnum','th_ispass']
+	let order = ['th_id','th_name','th_requirement','mentor.mt_name','ThesisField.thf_field','ThesisLevel.thl_level','th_maxnum','th_ispass']
 	let data = []
 	const checkThesis = (obj) => {
-	  console.log(obj)
 	  dispatch({
 	  	type: 'thesischeck/showEditModal',
 	  	payload: {
@@ -84,14 +83,14 @@ const ThesisCheck = ({ location, dispatch, thesischeck }) => {
         content={
           <Table
             tableHeaderColor="primary"
-            tableHead={["ID","Name", "Mentor", "Field","Level","Max","IsPass","Actions"]}
+            tableHead={["ID","Name","Requirement", "Mentor", "Field","Level","Max","IsPass","Actions"]}
             tableData={data}
             page={page}
             handleChangeRowsPerPage={handleChangeRowsPerPage}
             handleChangePage={handleChangePage}
             paginationShow={true}
           />}
-          cardTitle="标题"
+          cardTitle="Thesises From Mentor"
           cardIcon={Assignment}/>
           <EditForm />
           </div>

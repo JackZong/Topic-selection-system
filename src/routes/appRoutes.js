@@ -9,8 +9,61 @@ import {
   Explore,
   Profile
 } from "material-ui-icons";
-
-const appRoutes = [
+import { getCookies } from "../utils/"
+import constant from '../utils/constant'
+const { manager } = constant
+let username = getCookies().username
+let appRoutes
+if (manager.indexOf(username) !== -1){
+  appRoutes = [
+  {
+    path: "/dashboard",
+    sidebarName: "Dashboard",
+    navbarName: "Dashboard",
+    icon: Dashboard,
+    component: () => require('./dashboard/'),
+    models: () => [require('../models/dashboard')]
+  },
+  {
+    path: "/thesisapply",
+    sidebarName: "Thesis Apply",
+    navbarName: "Thesis Apply",
+    icon: ContentPaste,
+    component: () => require('./thesisapply/'),
+    models: () => [require('../models/thesisapply')]
+  },
+  {
+    path: "/student",
+    sidebarName: "Students Info",
+    navbarName: "Student Info Center",
+    icon: LibraryBooks,
+    component: () => require('./student/'),
+    models: () => [require('../models/student')]
+  },
+  {
+    path: "/thesischeck",
+    sidebarName: "Thesis Check",
+    navbarName: "Thesis Check",
+    icon: BubbleChart,
+    component: () => require('./thesischeck/'),
+    models: () => [require('../models/thesischeck')]
+  },
+  {
+    path: "/logs",
+    sidebarName: "Login Log",
+    navbarName: "Login Log",
+    icon: Explore,
+    component: () => require('./logs/'),
+    models: () => [require('../models/logs')]
+  },
+  {
+    path: "/login",
+    component: () => require('./login/'),
+    models: () => [require('../models/login')]
+  }
+]
+} else if(username.length === 10) {
+  appRoutes = [
   {
     path: "/dashboard",
     sidebarName: "Dashboard",
@@ -31,41 +84,9 @@ const appRoutes = [
     path: "/thesis",
     sidebarName: "Thesis Info",
     navbarName: "Thesis",
-    icon: Person,
+    icon: ContentPaste,
     component: () => require('./thesis/'),
     models: () => [require('../models/thesis')]
-  },
-  {
-    path: "/thesisapply",
-    sidebarName: "Thesis Apply",
-    navbarName: "Thesis Apply",
-    icon: ContentPaste,
-    component: () => require('./thesisapply/'),
-    models: () => [require('../models/thesisapply')]
-  },
-  {
-    path: "/student",
-    sidebarName: "Students Info",
-    navbarName: "Student Info Center",
-    icon: LibraryBooks,
-    component: () => require('./student/'),
-    models: () => [require('../models/student')]
-  },
-  {
-    path: "/thesispresel",
-    sidebarName: "Pre Selection",
-    navbarName: "Pre Selection",
-    icon: BubbleChart,
-    component: () => require('./thesispresel/'),
-    models: () => [require('../models/thesispresel')]
-  },
-  {
-    path: "/thesischeck",
-    sidebarName: "Thesis Check",
-    navbarName: "Thesis Check",
-    icon: BubbleChart,
-    component: () => require('./thesischeck/'),
-    models: () => [require('../models/thesischeck')]
   },
   {
     path: "/mythesis",
@@ -88,6 +109,63 @@ const appRoutes = [
     component: () => require('./login/'),
     models: () => [require('../models/login')]
   }
-];
+]
+} else if(username.length === 6) {
+  appRoutes = [
+    {
+      path: "/dashboard",
+      sidebarName: "Dashboard",
+      navbarName: "Dashboard",
+      icon: Dashboard,
+      component: () => require('./dashboard/'),
+      models: () => [require('../models/dashboard')]
+    },
+    {
+      path: "/thesisapply",
+      sidebarName: "Thesis Apply",
+      navbarName: "Thesis Apply",
+      icon: ContentPaste,
+      component: () => require('./thesisapply/'),
+      models: () => [require('../models/thesisapply')]
+    },
+    {
+      path: "/student",
+      sidebarName: "Students Info",
+      navbarName: "Student Info Center",
+      icon: LibraryBooks,
+      component: () => require('./student/'),
+      models: () => [require('../models/student')]
+    },
+    {
+      path: "/thesispresel",
+      sidebarName: "Pre Selection",
+      navbarName: "Pre Selection",
+      icon: BubbleChart,
+      component: () => require('./thesispresel/'),
+      models: () => [require('../models/thesispresel')]
+    },
+    {
+      path: "/logs",
+      sidebarName: "Login Log",
+      navbarName: "Login Log",
+      icon: Explore,
+      component: () => require('./logs/'),
+      models: () => [require('../models/logs')]
+    },
+    {
+      path: "/login",
+      component: () => require('./login/'),
+      models: () => [require('../models/login')]
+    }
+  ]
+} else {
+  appRoutes = [
+    {
+      path: "/login",
+      component: () => require('./login/'),
+      models: () => [require('../models/login')]
+    }
+  ]
+}
 
 export default appRoutes;

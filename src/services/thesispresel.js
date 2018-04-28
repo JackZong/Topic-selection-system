@@ -11,4 +11,10 @@ function updatePre(payload) {
 		data: payload
 	})
 }
-export { queryList, updatePre }
+function updateCheck(payload) {
+	return Request('/preselection/updatecheck',{
+		method: 'post',
+		data: payload
+	})
+}
+export { queryList, updatePre, updateCheck }

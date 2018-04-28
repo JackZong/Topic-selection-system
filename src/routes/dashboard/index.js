@@ -29,7 +29,7 @@ const Dashboard = ({dashboard}) => {
                     </div>
                     <div className="card-content">
                         <p className="category">Thesises</p>
-                        <h3 className="card-title">184</h3>
+                        <h3 className="card-title">602</h3>
                     </div>
                     <div className="card-footer">
                         <div className="stats">

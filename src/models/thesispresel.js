@@ -1,4 +1,4 @@
-import { queryList, updatePre } from '../services/thesispresel'
+import { queryList, updatePre,updateCheck } from '../services/thesispresel'
 import { getCookies } from '../utils/'
 import Swal from 'sweetalert2'
 export default {
@@ -41,6 +41,8 @@ export default {
   		}
   	},
     *updatePre({payload},{ call, put, select }) {
+   /*   let isOk = yield call(updateCheck,payload)
+      console.log(isOk)*/
       let res = yield call(updatePre,payload)
       if(res.code === 1) {
         yield put({
@@ -49,7 +51,7 @@ export default {
         yield put({
           type: 'queryList',
           payload: {
-            username: payload.mt_id
+            username: getCookies().username
           }
         })
         Swal({
@@ -57,7 +59,20 @@ export default {
           type: 'success',
           timer: 2000
         })
+      } else if(res.code === -1){
+        yield put({
+          type: 'hideEditModal'
+        })
+        Swal({
+          title: 'Update Failed!',
+          type: 'error',
+          text: res.msg,
+          timer: 2000
+        })
       } else {
+        yield put({
+          type: 'hideEditModal'
+        })
         Swal({
           title: 'Update Failed!',
           type: 'error',

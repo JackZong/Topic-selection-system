@@ -5,4 +5,10 @@ function queryList(payload) {
 		data: payload
 	})
 }
-export { queryList }
+function updateProfile(payload) {
+	return Request('/profile/', {
+		method: 'PUT',
+		data: payload
+	})
+}
+export { queryList,updateProfile }

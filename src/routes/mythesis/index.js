@@ -8,26 +8,35 @@ const Mythesis = ({location,dispatch,mythesis}) => {
 	const { list } = mythesis
 		let data = []
 		let order = ['Thesis.th_name','mentor.mt_name','mentor.mt_sex','mentor.mt_telephone','psr_state']
-		list.map((item,index) => {
+		list.forEach((item,index) => {
 			let arr = []
 			for(let i in item) {
-				if(order.indexOf(i) > -1) {
-					if(i === 'psr_state') {
-						if(item[i] !== 'D') {
-                           item[i] ='Pending'
-						} else {
-							item[i] = 'Success'
-						}
-					}
-				  arr[order.indexOf(i)] = item[i]
+				let index = order.indexOf(i)
+				if(index > -1) {
+				  arr[index] = item[i]
 				}
 			}
 			data.push(arr)
-			return item
+		})
+		// fuck bug
+		let dataRedux = data.map((item,index) => {
+			return item.map((item2,index2) => {
+				console.log(item2)
+				if(item2 === 'D'){
+					item2 = 'Success'
+				}else if(item2 === 'A') {
+					item2 = 'Pending'
+				}else if(item2 === 'B') {
+					item2 = 'Pending'
+				}else if(item2 === 'C') {
+					item2 = 'Pending'
+				}
+				return item2
+			})
 		})
 		const tableProps = {
 			tableHead: ['Thesis','Mentor','Sex','Phone','State'],
-			tableData: data,
+			tableData: dataRedux,
 			paginationShow: false
 		}
 	return (

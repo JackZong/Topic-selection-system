@@ -13,5 +13,12 @@ export default {
 	  'B': 'B',
 	  'C': 'C',
 	  'D': 'D'
-	}
+	},
+	PreState: {
+		'A': 'Pending',
+		'B': 'Pending',
+		'C': 'Pending',
+		'D': 'Success'
+	},
+	manager: ['003146','003845001','101']
 }

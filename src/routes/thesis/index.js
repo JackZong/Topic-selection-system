@@ -18,7 +18,7 @@ import {
 import swal from 'sweetalert2'
 const Thesis = ({ location, dispatch, thesis }) => {
   const { list, page } = thesis
-  let order = ['th_id','th_name','mentor.mt_name','ThesisField.thf_field','ThesisLevel.thl_level','th_maxnum','th_state']
+  let order = ['th_id','th_name','th_requirement','mentor.mt_name','ThesisField.thf_field','ThesisLevel.thl_level','th_maxnum','th_state']
   let data = []
   const addThesis = (obj) => {
     console.log(obj)
@@ -113,14 +113,14 @@ const Thesis = ({ location, dispatch, thesis }) => {
         content={
           <Table
             tableHeaderColor="primary"
-            tableHead={["ID","Name", "Mentor", "Field","Level","Max","State","Actions"]}
+            tableHead={["ID","Name", "Requirement","Mentor", "Field","Level","Max","State","Actions"]}
             tableData={data}
             page={page}
             handleChangeRowsPerPage={handleChangeRowsPerPage}
             handleChangePage={handleChangePage}
             paginationShow={true}
           />}
-          cardTitle="标题"
+          cardTitle="Thesis List"
           cardIcon={Assignment}/>
       </div>
 

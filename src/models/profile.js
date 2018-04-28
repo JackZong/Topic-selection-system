@@ -1,6 +1,7 @@
 import { routerRedux } from 'dva/router'
-import { queryList } from '../services/profile'
+import { queryList, updateProfile } from '../services/profile'
 import { setCookie, getCookies } from '../utils/'
+import swal from 'sweetalert2'
 export default {
 	namespace: 'profile',
 	state: {
@@ -31,7 +32,23 @@ export default {
       			}
       		})
       	}
-      }
+      },
+      *updateProfile({ payload }, { call, put, select }) {
+      	let res = yield call(updateProfile,payload)
+      	if(res.code === 1) {
+      		swal({
+      			title: 'Update Profile Success !',
+      			type: 'success',
+      			timer: 2000
+      		})
+      		yield put({
+      			type: 'queryList',
+      			payload: {
+      			  username: getCookies().username
+      			}
+      		})
+      	}
+      },
 	},
 	reducers: {
 	 	queryListSuccess(state,action) {

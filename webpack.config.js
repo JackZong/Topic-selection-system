@@ -2,7 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 // 抽离css样式---将文件单独打包
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-console.log(ExtractTextPlugin)
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 	template: `${__dirname}/src/index.html`,
 	filename: 'index.html',
@@ -10,7 +9,7 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 })
 const webpack = require('webpack')
 module.exports = {
-	entry: './src/index.js',
+	entry: "./src/index.js",
 	output: {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'dist')

@@ -1,4 +1,5 @@
 import { list, check } from '../services/thesischeck'
+import swal from 'sweetalert2'
 export default {
 	namespace: 'thesischeck',
 	state: {
@@ -41,8 +42,18 @@ export default {
       *check({payload},{call,put,select}) {
        let data = yield call(check,payload)
        if(data.code) {
-        alert('check success')
-      }
+         swal({
+          title: 'Success',
+          type: 'success',
+          timer: 2000
+         })
+         yield put({
+          type: 'queryList'
+         })
+         yield put({
+          type: 'hideEditModal'
+         })
+       }
     }
 	},
 	reducers: {

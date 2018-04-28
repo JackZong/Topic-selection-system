@@ -12,7 +12,7 @@ export default {
       	let data = yield call(login,payload)
       	if (data.code === 1) {
       	  setCookie('username',data.data.username,1)
-      	  yield put(routerRedux.push('/dashboard'))
+      	  window.open('/dashboard','_self')
 
       	} else {
 
