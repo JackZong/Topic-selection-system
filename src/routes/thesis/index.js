@@ -16,12 +16,12 @@ import {
   Add
 } from 'material-ui-icons'
 import swal from 'sweetalert2'
+import MUIDataTable from 'mui-datatables'
 const Thesis = ({ location, dispatch, thesis }) => {
   const { list, page } = thesis
   let order = ['th_id','th_name','th_requirement','mentor.mt_name','ThesisField.thf_field','ThesisLevel.thl_level','th_maxnum','th_state']
   let data = []
   const addThesis = (obj) => {
-    console.log(obj)
     swal({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -107,19 +107,22 @@ const Thesis = ({ location, dispatch, thesis }) => {
    }
    ))
   }
+ console.log(data)
+const columns = ["ID","Name", "Requirement","Mentor", "Field","Level","Max","State","Actions"]
+const tableOptions = {
+  filterType: "dropdown"
+}
 	return (
       <div>
       <RegularCard
         content={
-          <Table
-            tableHeaderColor="primary"
-            tableHead={["ID","Name", "Requirement","Mentor", "Field","Level","Max","State","Actions"]}
-            tableData={data}
-            page={page}
-            handleChangeRowsPerPage={handleChangeRowsPerPage}
-            handleChangePage={handleChangePage}
-            paginationShow={true}
-          />}
+          <MUIDataTable 
+            title={''}
+            data={data}
+            columns={columns}
+            options={tableOptions}
+        />
+        }
           cardTitle="Thesis List"
           cardIcon={Assignment}/>
       </div>

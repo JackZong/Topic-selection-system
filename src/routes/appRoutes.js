@@ -62,7 +62,7 @@ if (manager.indexOf(username) !== -1){
     models: () => [require('../models/login')]
   }
 ]
-} else if(username.length === 10) {
+} else if(username && username.length === 10) {
   appRoutes = [
   {
     path: "/dashboard",
@@ -110,7 +110,7 @@ if (manager.indexOf(username) !== -1){
     models: () => [require('../models/login')]
   }
 ]
-} else if(username.length === 6) {
+} else if(username && username.length === 6) {
   appRoutes = [
     {
       path: "/dashboard",
