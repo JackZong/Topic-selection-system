@@ -1,5 +1,6 @@
 import React from 'react'
 import Style from './headerlinks.less'
+import { setCookie } from '../../utils/'
 import {
   withStyles,
   IconButton,
@@ -19,17 +20,28 @@ class HeaderLinks extends React.Component {
   constructor(props) {
   	super(props)
   	this.state = {
-  	  open: false	
+  	  open: false,
+      userOpen: false	
   	}
   }
-  handleClick = () => {
-    this.setState({ open: !this.state.open });
+  handleClick = (item) => {
+    this.setState({ [item]: !this.state[item] });
   }
-  handleClose = () => {
-    this.setState({ open: false });
+  handleClose = (item) => {
+    this.setState({ [item]: false });
+  }
+  toDashboard = () => {
+    window.open('/','_self')
+  }
+  handleLogout = () => {
+    setCookie('username','')
+    window.open('/login','_self')
+  }
+  toProfile = () => {
+    window.open('/profile','_self')
   }
   render() {
-  	const { open } = this.state
+  	const { open,userOpen } = this.state
   	return (
      <div>
        <CustomInput
@@ -54,6 +66,7 @@ class HeaderLinks extends React.Component {
          color="inherit"
          aria-label="Dashboard"
          className={Style.buttonLink}
+         onClick={this.toDashboard}
        >
          <Dashboard className={Style.links} />
          <Hidden mdUp>
@@ -67,13 +80,13 @@ class HeaderLinks extends React.Component {
              aria-label="Notifications"
              aria-owns={open ? "menu-list" : null}
              aria-haspopup="true"
-             onClick={this.handleClick}
+             onClick={() =>this.handleClick('open')}
              className={Style.buttonLink}
            >
              <Notifications className={Style.links} />
              <span className={Style.notifications}>5</span>
              <Hidden mdUp>
-               <p onClick={this.handleClick} className={Style.linkText}>
+               <p onClick={() =>this.handleClick('open')} className={Style.linkText}>
                  Notification
                </p>
              </Hidden>
@@ -88,7 +101,7 @@ class HeaderLinks extends React.Component {
              Style.pooperResponsive
            }
          >
-           <ClickAwayListener onClickAway={this.handleClose}>
+           <ClickAwayListener onClickAway={() => this.handleClose('open')}>
              <Grow
                in={open}
                id="menu-list"
@@ -97,31 +110,31 @@ class HeaderLinks extends React.Component {
                <Paper className={Style.dropdown}>
                  <MenuList role="menu">
                    <MenuItem
-                     onClick={this.handleClose}
+                     onClick={() => this.handleClose('open')}
                      className={Style.dropdownItem}
                    >
                      Mike John responded to your email
                    </MenuItem>
                    <MenuItem
-                     onClick={this.handleClose}
+                     onClick={() => this.handleClose('open')}
                      className={Style.dropdownItem}
                    >
                      You have 5 new tasks
                    </MenuItem>
                    <MenuItem
-                     onClick={this.handleClose}
+                     onClick={() => this.handleClose('open')}
                      className={Style.dropdownItem}
                    >
                      You're now friend with Andrew
                    </MenuItem>
                    <MenuItem
-                     onClick={this.handleClose}
+                     onClick={() => this.handleClose('open')}
                      className={Style.dropdownItem}
                    >
                      Another Notification
                    </MenuItem>
                    <MenuItem
-                     onClick={this.handleClose}
+                     onClick={() => this.handleClose('open')}
                      className={Style.dropdownItem}
                    >
                      Another One
@@ -132,7 +145,7 @@ class HeaderLinks extends React.Component {
            </ClickAwayListener>
          </Popper>
        </Manager>
-       <IconButton
+{/*     <IconButton
          color="inherit"
          aria-label="Person"
          className={Style.buttonLink}
@@ -141,7 +154,60 @@ class HeaderLinks extends React.Component {
          <Hidden mdUp>
            <p className={Style.linkText}>Profile</p>
          </Hidden>
-       </IconButton>
+       </IconButton>*/}
+       <Manager style={{ display: "inline-block" }}>
+         <Target>
+           <IconButton
+             color="inherit"
+             aria-label="Notifications"
+             aria-owns={userOpen ? "menu-list" : null}
+             aria-haspopup="true"
+             onClick={() => this.handleClick('userOpen')}
+             className={Style.buttonLink}
+           >
+             <Person className={Style.links} />
+             <Hidden mdUp>
+               <p onClick={() => this.handleClick('userOpen')} className={Style.linkText}>
+                 Notification
+               </p>
+             </Hidden>
+           </IconButton>
+         </Target>
+         <Popper
+           placement="bottom-start"
+           eventsEnabled={userOpen}
+           className={
+             classNames({ [Style.popperClose]: !userOpen }) +
+             " " +
+             Style.pooperResponsive
+           }
+         >
+           <ClickAwayListener onClickAway={() =>this.handleClose('userOpen')}>
+             <Grow
+               in={userOpen}
+               id="menu-list"
+               style={{ transformOrigin: "0 0 0" }}
+             >
+               <Paper className={Style.dropdown}>
+                 <MenuList role="menu">
+                   <MenuItem
+                     onClick={this.toProfile}
+                     className={Style.dropdownItem}
+                   >
+                     Profile
+                   </MenuItem>
+                   <MenuItem
+                     onClick={this.handleLogout}
+                     className={Style.dropdownItem}
+                   >
+                     Logout
+                   </MenuItem>
+                 </MenuList>
+               </Paper>
+             </Grow>
+           </ClickAwayListener>
+         </Popper>
+       </Manager>
      </div>
   	)
   }

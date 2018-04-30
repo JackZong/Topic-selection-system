@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Style from "./iconButton.less";
 
 function IconCustomButton({ ...props }) {
-  const { classes, color, children, customClass, ...rest } = props;
+  const { color, children, customClass, ...rest } = props;
   return (
     <IconButton
       {...rest}
@@ -21,7 +21,6 @@ function IconCustomButton({ ...props }) {
 }
 
 IconCustomButton.propTypes = {
-  classes: PropTypes.object.isRequired,
   color: PropTypes.oneOf([
     "primary",
     "info",

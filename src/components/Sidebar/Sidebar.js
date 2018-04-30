@@ -25,7 +25,7 @@ import {
 const SideBar = ({...props}) => {
   const { logoText, routes, location, color } = props
   function activeRoute(routeName) {
-    return props.location.pathname.indexOf(routeName) > -1 ? true : false;
+    return props.location.pathname === routeName ? true : false;
   }
   return (
   	        <div>
@@ -60,7 +60,7 @@ const SideBar = ({...props}) => {
                     <Link
                       to={item.path}
                       className={Style.item}
-                      activeClassName="active"
+                      activeclassname="active"
                       key={index}
                     >
                       <ListItem button className={listItemClasses}>

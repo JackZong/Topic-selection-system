@@ -1,5 +1,6 @@
 import { routerRedux } from 'dva/router'
 import { login } from '../services/login'
+import { setCookie } from '../utils/'
 export default {
 	namespace: 'login',
 	state: {},
@@ -8,7 +9,14 @@ export default {
 	},
 	effects: {
       *checklogin({ payload }, { call, put, select }){
-      	console.log(login)
+      	let data = yield call(login,payload)
+      	if (data.code === 1) {
+      	  setCookie('username',data.data.username,1)
+      	  window.open('/dashboard','_self')
+
+      	} else {
+
+      	}
       }
 	},
 	reducers: {

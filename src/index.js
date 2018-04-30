@@ -8,7 +8,9 @@ const app = dva({
   history: createHistory()
 })
 // 2.Model
-app.use(createLoading())
+app.use({...createLoading({
+	effects: true
+})})
 // 3.Router
 app.model(appModel)
 app.router(require('./router').default)

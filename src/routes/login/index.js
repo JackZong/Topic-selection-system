@@ -13,8 +13,8 @@ class Login extends React.Component {
     this.props.dispatch({
       type: 'login/checklogin',
       payload: {
-        username: 'jack',
-        password: '123456'
+        username: this.refs.username.value,
+        password: this.refs.password.value
       }
     })
   }
@@ -39,21 +39,21 @@ class Login extends React.Component {
                                       <i class="material-icons">dashboard</i> Dashboard
                                   </a>
                               </li>
-                              <li class="">
+                             {/* <li class="">
                                   <a href="/pages/register">
                                       <i class="material-icons">person_add</i> Register
                                   </a>
-                              </li>
+                              </li>*/}
                               <li class=" active ">
                                   <a href="/pages/login">
                                       <i class="material-icons">fingerprint</i> Login
                                   </a>
                               </li>
-                              <li class="">
-                                  <a href="/pages/lock">
-                                      <i class="material-icons">lock_open</i> Lock
-                                  </a>
-                              </li>
+                            {/*  <li class="">
+                                                              <a href="/pages/lock">
+                                                                  <i class="material-icons">lock_open</i> Lock
+                                                              </a>
+                                                          </li>*/}
                           </ul>
                       </div>
                   </div>
@@ -68,7 +68,7 @@ class Login extends React.Component {
                                       <div class="card card-login">
                                           <div class="card-header text-center" data-background-color="rose">
                                               <h4 class="card-title">Login</h4>
-                                              <div class="social-line">
+                                            {/*  <div class="social-line" >
                                                   <a href="#btn" class="btn btn-just-icon btn-simple">
                                                       <i class="fa fa-facebook-square"></i>
                                                   </a>
@@ -78,19 +78,19 @@ class Login extends React.Component {
                                                   <a href="#eugen" class="btn btn-just-icon btn-simple">
                                                       <i class="fa fa-google-plus"></i>
                                                   </a>
-                                              </div>
+                                              </div>*/}
                                           </div>
-                                          <p class="category text-center">
+                                       {/*<p class="category text-center">
                                               Or Be Classical
-                                          </p>
+                                          </p>*/}
                                           <div class="card-content">
                                               <div class="input-group">
                                                   <span class="input-group-addon">
                                                       <i class="material-icons">face</i>
                                                   </span>
                                                   <div class="form-group label-floating">
-                                                      <label class="control-label">用户名</label>
-                                                      <input type="text" class="form-control" formControlName="username" />
+                                                      <label class="control-label">Username</label>
+                                                      <input type="text" class="form-control" formControlName="username" ref="username" />
                                                   </div>
                                               </div>
                                               <div class="input-group">
@@ -98,8 +98,8 @@ class Login extends React.Component {
                                                       <i class="material-icons">lock_outline</i>
                                                   </span>
                                                   <div class="form-group label-floating">
-                                                      <label class="control-label">密码</label>
-                                                      <input type="password" class="form-control" formControlName="password" />
+                                                      <label class="control-label">Password</label>
+                                                      <input type="password" class="form-control" formControlName="password" ref="password" />
                                                   </div>
                                               </div>
                                           </div>
@@ -117,23 +117,23 @@ class Login extends React.Component {
                           <nav class="pull-left">
                               <ul>
                                   <li>
-                                      <a href="#">
+                                      <a href="http://www.jxnu.edu.cn/">
                                           Home
                                       </a>
                                   </li>
                                   <li>
-                                      <a href="#">
-                                          Company
+                                      <a href="http://jwc.jxnu.edu.cn/">
+                                          Dean's Office 
                                       </a>
                                   </li>
                                   <li>
-                                      <a href="#">
-                                          Portfolio
+                                      <a href="http://tsg.jxnu.edu.cn/">
+                                          Library
                                       </a>
                                   </li>
                                   <li>
-                                      <a href="#">
-                                          Blog
+                                      <a href="http://www.cnki.net/">
+                                          Cnki
                                       </a>
                                   </li>
                               </ul>
@@ -141,7 +141,7 @@ class Login extends React.Component {
                           <p class="copyright pull-right">
                               &copy;
                               {new Date(Date.now()).getFullYear()}
-                              <a href="https://www.creative-tim.com"> Creative Tim</a>, made with love for a better web
+                              <a href="https://www.creative-tim.com"> JXNU</a>, made with love for a better web
                           </p>
                       </div>
                   </footer>
