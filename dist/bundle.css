@@ -565,7 +565,6 @@
   margin: 10px 15px 0;
   border-radius: 3px;
   position: relative;
-  display: block;
   padding: 10px 15px;
   background-color: transparent;
   font-family: 'Roboto, Helvetica, Arial, sans-serif';
@@ -589,6 +588,9 @@
   line-height: 30px;
   font-size: 14px;
   color: #FFFFFF;
+}
+.src-components-Sidebar-sidebar---itemText---27XFr h3 {
+  color: #fff;
 }
 .src-components-Sidebar-sidebar---whiteFont---30-Ye {
   color: #FFFFFF;
