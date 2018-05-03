@@ -30,13 +30,13 @@ class Login extends React.Component {
                               <span class="icon-bar"></span>
                               <span class="icon-bar"></span>
                           </button>
-                          <a class="navbar-brand" href="/#/dashboard">Thesies Selection System</a>
+                          <a class="navbar-brand" href="/#/dashboard">论文选题系统</a>
                       </div>
                       <div class="collapse navbar-collapse" id="menu-example">
                           <ul class="nav navbar-nav navbar-right">
                               <li>
                                   <a routerLink='/dashboard'>
-                                      <i class="material-icons">dashboard</i> Dashboard
+                                      <i class="material-icons">dashboard</i> 系统后台
                                   </a>
                               </li>
                              {/* <li class="">
@@ -46,7 +46,7 @@ class Login extends React.Component {
                               </li>*/}
                               <li class=" active ">
                                   <a href="/pages/login">
-                                      <i class="material-icons">fingerprint</i> Login
+                                      <i class="material-icons">fingerprint</i> 登录页
                                   </a>
                               </li>
                             {/*  <li class="">
@@ -67,7 +67,7 @@ class Login extends React.Component {
                                   <form ref="form">
                                       <div class="card card-login">
                                           <div class="card-header text-center" data-background-color="rose">
-                                              <h4 class="card-title">Login</h4>
+                                              <h4 class="card-title">用户登录</h4>
                                             {/*  <div class="social-line" >
                                                   <a href="#btn" class="btn btn-just-icon btn-simple">
                                                       <i class="fa fa-facebook-square"></i>
@@ -89,7 +89,7 @@ class Login extends React.Component {
                                                       <i class="material-icons">face</i>
                                                   </span>
                                                   <div class="form-group label-floating">
-                                                      <label class="control-label">Username</label>
+                                                      <label class="control-label">用户名</label>
                                                       <input type="text" class="form-control" formControlName="username" ref="username" />
                                                   </div>
                                               </div>
@@ -98,13 +98,13 @@ class Login extends React.Component {
                                                       <i class="material-icons">lock_outline</i>
                                                   </span>
                                                   <div class="form-group label-floating">
-                                                      <label class="control-label">Password</label>
+                                                      <label class="control-label">密码</label>
                                                       <input type="password" class="form-control" formControlName="password" ref="password" />
                                                   </div>
                                               </div>
                                           </div>
                                           <div class="footer text-center">
-                                              <button type="submit" class="btn btn-rose btn-simple btn-wd btn-lg" onClick={this.formSubmit}>Let's go</button>
+                                              <button type="submit" class="btn btn-rose btn-simple btn-wd btn-lg" onClick={this.formSubmit}>登录</button>
                                           </div>
                                       </div>
                                   </form>
@@ -118,22 +118,22 @@ class Login extends React.Component {
                               <ul>
                                   <li>
                                       <a href="http://www.jxnu.edu.cn/">
-                                          Home
+                                          师大主页
                                       </a>
                                   </li>
                                   <li>
                                       <a href="http://jwc.jxnu.edu.cn/">
-                                          Dean's Office 
+                                         教务在线
                                       </a>
                                   </li>
                                   <li>
                                       <a href="http://tsg.jxnu.edu.cn/">
-                                          Library
+                                          图书馆
                                       </a>
                                   </li>
                                   <li>
                                       <a href="http://www.cnki.net/">
-                                          Cnki
+                                          知网
                                       </a>
                                   </li>
                               </ul>

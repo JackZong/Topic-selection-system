@@ -106,7 +106,7 @@ const Thesis = ({ location, dispatch, thesis }) => {
      })
    }
    ))
-  }
+  } 
  console.log(data)
 const columns = ["ID","Name", "Requirement","Mentor", "Field","Level","Max","State","Actions"]
 const tableOptions = {

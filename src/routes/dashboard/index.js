@@ -16,8 +16,9 @@ import { Grid } from "material-ui";
 import Style from './dashboard.less'
 import ItemGrid from 'components/Grid/ItemGrid'
 import NProgress from 'nprogress'
+import { now } from '../../utils/'
 const Dashboard = ({dashboard}) => {
-    const { list } = dashboard
+  const { list } = dashboard
   return (
   	<div className="content">
         <div className="container-fluid">
@@ -28,13 +29,13 @@ const Dashboard = ({dashboard}) => {
                         <i className="material-icons">weekend</i>
                     </div>
                     <div className="card-content">
-                        <p className="category">Thesises</p>
+                        <p className="category">论文题目</p>
                         <h3 className="card-title">602</h3>
                     </div>
                     <div className="card-footer">
                         <div className="stats">
                             <i className="material-icons text-danger">warning</i>
-                            <a href="#pablo">Just Count By 2018</a>
+                            <a href="#pablo">仅计算 2018 届</a>
                         </div>
                     </div>
                 </div>
@@ -45,12 +46,12 @@ const Dashboard = ({dashboard}) => {
                         <i className="material-icons">equalizer</i>
                     </div>
                     <div className="card-content">
-                        <p className="category">Website Visits</p>
+                        <p className="category">访问者</p>
                         <h3 className="card-title">null</h3>
                     </div>
                     <div className="card-footer">
                         <div className="stats">
-                            <i className="material-icons">local_offer</i> Tracked from Baidu Analytics
+                            <i className="material-icons">local_offer</i> 来自百度统计
                         </div>
                     </div>
                 </div>
@@ -61,12 +62,12 @@ const Dashboard = ({dashboard}) => {
                         <i className="material-icons">person</i>
                     </div>
                     <div className="card-content">
-                        <p className="category">Users</p>
+                        <p className="category">用户</p>
                         <h3 className="card-title">745</h3>
                     </div>
                     <div className="card-footer">
                         <div className="stats">
-                            <i className="material-icons">date_range</i> 
+                            <i className="material-icons">date_range</i> 截止 {now()}
                         </div>
                     </div>
                 </div>
@@ -77,12 +78,12 @@ const Dashboard = ({dashboard}) => {
                         <i className="fa fa-twitter"></i>
                     </div>
                     <div className="card-content">
-                        <p className="category">Thesis Selected</p>
+                        <p className="category">学生选题率</p>
                         <h3 className="card-title">98%</h3>
                     </div>
                     <div className="card-footer">
                         <div className="stats">
-                            <i className="material-icons">update</i> Just Updated
+                            <i className="material-icons">update</i> 刚刚更新
                         </div>
                     </div>
                 </div>
@@ -95,7 +96,7 @@ const Dashboard = ({dashboard}) => {
                             <i className="material-icons">language</i>
                         </div>
                         <div className="card-content">
-                            <h4 className="card-title">Top 10 Thesises</h4>
+                            <h4 className="card-title">10 大热门选题</h4>
                             <div className="row">
                                 <div className="col-md-12">
                                     <div className="table-responsive table-sales">
@@ -103,14 +104,14 @@ const Dashboard = ({dashboard}) => {
                                             <tbody>
                                             <tr>
                                                 <td className="text-center">
-                                                    State
+                                                    状态（人）
                                                 </td>
-                                                <td className="text-center">Thesis ID</td>
+                                                <td className="text-center">编号</td>
                                                 <td className="text-center">
-                                                   Thesis Name
+                                                   题目
                                                 </td>
                                                 <td className="text-center">
-                                                   Mentor
+                                                   导师
                                                 </td>
                                             </tr>
                                             {list.map((item,index,arr) => {

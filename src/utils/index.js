@@ -18,8 +18,16 @@ function getCookies() {
   })
   return obj
 }
+function now() {
+  let time = new Date()
+  let y = time.getFullYear()
+  let m = time.getMonth() + 1
+  let d = time.getDate()
+  return y + '-' + m + '-' + d
+}
 
 export {
 	setCookie,
-	getCookies
+	getCookies,
+  now
 }

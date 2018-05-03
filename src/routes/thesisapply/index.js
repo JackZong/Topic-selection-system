@@ -79,14 +79,14 @@ const ThesisApply = ({dispatch,location,thesisapply}) => {
   	  const { levelArr, fieldArr, level, field, onCancel, open, onOk,title,requirement,maxnum } = this.state
   	  return (
   	  	<Dialog open={open} onClose={onCancel} classes={{paper:Style.paper}}>
-  	  	 <DialogTitle>Thesis Apply Form</DialogTitle>
+  	  	 <DialogTitle>论文申报</DialogTitle>
   	  	 <DialogContent >
   	  	   	<form >
   	  	      <TextField
   	  	        autoFocus
   	  	        margin="dense"
   	  	        id="title"
-  	  	        label="Title"
+  	  	        label="题目"
   	  	        type="text"
   	  	        fullWidth
                 defaultValue={title}
@@ -97,7 +97,7 @@ const ThesisApply = ({dispatch,location,thesisapply}) => {
   	  	         rows="6"
   	  	         margin="dense"
   	  	         id="requirement"
-  	  	         label="Rquirement"
+  	  	         label="要求"
   	  	         fullWidth
   	  	         margin="normal"
   	  	         id="multiline-flexible"
@@ -108,7 +108,7 @@ const ThesisApply = ({dispatch,location,thesisapply}) => {
   	  	        <TextField
   	  	          margin="dense"
   	  	          id="requirement"
-  	  	          label="Maxnum"
+  	  	          label="容量"
   	  	          type="number"
   	  	          fullWidth
                   defaultValue={parseInt(maxnum)}
@@ -120,7 +120,7 @@ const ThesisApply = ({dispatch,location,thesisapply}) => {
   	  	         <TextField
   	  	           id="select-level"
   	  	           select
-  	  	           label="Level"
+  	  	           label="等级"
   	  	           margin="dense"
   	  	           value={level}
   	  	           fullWidth
@@ -135,7 +135,7 @@ const ThesisApply = ({dispatch,location,thesisapply}) => {
   	  	         <TextField
   	  	           id="select-field"
   	  	           select
-  	  	           label="Level"
+  	  	           label="类别"
   	  	           margin="dense"
   	  	           value={field}
   	  	           fullWidth
@@ -150,8 +150,8 @@ const ThesisApply = ({dispatch,location,thesisapply}) => {
   	  	     </form>
   	  	 </DialogContent>
   	  	 <DialogActions>
-  	  	   <Button color="primary" onClick={onCancel}>Cancel</Button>
-  	  	   <Button color="primary" onClick={() => onOk(this.state)}>Submit</Button>
+  	  	   <Button color="primary" onClick={onCancel}>取消</Button>
+  	  	   <Button color="primary" onClick={() => onOk(this.state)}>确定</Button>
   	  	 </DialogActions>
   	  	</Dialog>
   	  )
@@ -260,12 +260,12 @@ const ThesisApply = ({dispatch,location,thesisapply}) => {
   	  </Tooltip>
   	</div>
     <RegularCard
-      cardTitle="My Thesis Apply"
+      cardTitle="我申报的论文"
       cardIcon={Alarm}
       content={
       	<Table
       	  tableHeaderColor="primary"
-      	  tableHead={["ID","Name","Field","Level","Max","Requirement","State","Actions"]}
+      	  tableHead={["编号","题目","类别","等级","容量","要求","状态","操作"]}
       	  tableData={data}
       	  page={page}
       	  handleChangeRowsPerPage={handleChangeRowsPerPage}

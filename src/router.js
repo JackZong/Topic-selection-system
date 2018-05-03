@@ -23,7 +23,7 @@ function RouterConfig({ history, app }) {
         <App>
           <Route path="/" exact render={() => (<Redirect to='/dashboard' />)} />
           {AppRoutes.map(({path,...dynamics},index,arr) =>{
-              if (path !== '/login') {
+              if (path && path !== '/login') {
                 return <Route exact path={path} component={dynamic({app,...dynamics})} key={path} />
               }
             }

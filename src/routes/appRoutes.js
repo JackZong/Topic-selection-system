@@ -26,32 +26,86 @@ if (manager.indexOf(username) !== -1){
   },
   {
     path: "/thesisapply",
-    sidebarName: "Thesis Apply",
-    navbarName: "Thesis Apply",
+    sidebarName: "论文申报",
+    navbarName: "论文申报",
     icon: ContentPaste,
     component: () => require('./thesisapply/'),
     models: () => [require('../models/thesisapply')]
   },
   {
     path: "/student",
-    sidebarName: "Students Info",
-    navbarName: "Student Info Center",
+    sidebarName: "学生信息",
+    navbarName: "学生信息中心",
     icon: LibraryBooks,
     component: () => require('./student/'),
     models: () => [require('../models/student')]
   },
   {
+    path: "/teacher",
+    sidebarName: "教师信息",
+    navbarName: "教师信息中心",
+    icon: LibraryBooks,
+    component: () => require('./teachers/'),
+    models: () => [require('../models/teacher')]
+  },
+  {
     path: "/thesischeck",
-    sidebarName: "Thesis Check",
-    navbarName: "Thesis Check",
+    sidebarName: "论文审核",
+    navbarName: "论文审核",
     icon: BubbleChart,
     component: () => require('./thesischeck/'),
     models: () => [require('../models/thesischeck')]
   },
+  { 
+    sidebarName: "消息管理",
+    navbarName: "消息管理",
+    icon: BubbleChart,
+    children: [{
+      path: "/message",
+      sidebarName: "发送消息",
+      navbarName: "发送消息",
+      icon: BubbleChart,
+      component: () => require('./message/'),
+      models: () => [require('../models/message')],
+    },{
+      path: "/messagemy",
+      sidebarName: "我的留言",
+      navbarName: "我的留言",
+      icon: BubbleChart,
+      component: () => require('./message/'),
+      models: () => [require('../models/message')],
+    },{
+      path: "/messageall",
+      sidebarName: "所有留言",
+      navbarName: "所有留言",
+      icon: BubbleChart,
+      component: () => require('./message/'),
+      models: () => [require('../models/message')],
+    }]
+  },
+  {
+        path: "/message",
+        sidebarName: "发送消息",
+        navbarName: "发送消息",
+        component: () => require('./message/'),
+        models: () => [require('../models/message')]
+      },{
+        path: "/messagemy",
+        sidebarName: "我的留言",
+        navbarName: "我的留言",
+        component: () => require('./message/'),
+        models: () => [require('../models/message')],
+      },{
+        path: "/messageall",
+        sidebarName: "所有留言",
+        navbarName: "所有留言",
+        component: () => require('./message/'),
+        models: () => [require('../models/message')],
+      },
   {
     path: "/logs",
-    sidebarName: "Login Log",
-    navbarName: "Login Log",
+    sidebarName: "登录日志",
+    navbarName: "登录日志",
     icon: Explore,
     component: () => require('./logs/'),
     models: () => [require('../models/logs')]
@@ -73,33 +127,33 @@ if (manager.indexOf(username) !== -1){
     models: () => [require('../models/dashboard')]
   },
   {
-    path: "/profile",
-    sidebarName: "Profile",
-    navbarName: "Profile",
-    icon: Person,
-    component: () => require('./profile/'),
-    models: () => [require('../models/profile')]
-  },
-  {
     path: "/thesis",
-    sidebarName: "Thesis Info",
-    navbarName: "Thesis",
+    sidebarName: "论文列表",
+    navbarName: "论文列表",
     icon: ContentPaste,
     component: () => require('./thesis/'),
     models: () => [require('../models/thesis')]
   },
   {
     path: "/mythesis",
-    sidebarName: "My Thesis",
-    navbarName: "My Thesis",
+    sidebarName: "我的选题",
+    navbarName: "我的选题",
     icon: LocationOn,
     component: () => require('./mythesis/'),
     models: () =>[require('../models/mythesis')]
   },
   {
+    path: "/profile",
+    sidebarName: "个人信息",
+    navbarName: "个人信息",
+    icon: Person,
+    component: () => require('./profile/'),
+    models: () => [require('../models/profile')]
+  },
+  {
     path: "/logs",
-    sidebarName: "Login Log",
-    navbarName: "Login Log",
+    sidebarName: "登录日志",
+    navbarName: "登录日志",
     icon: Explore,
     component: () => require('./logs/'),
     models: () => [require('../models/logs')]
@@ -122,32 +176,32 @@ if (manager.indexOf(username) !== -1){
     },
     {
       path: "/thesisapply",
-      sidebarName: "Thesis Apply",
-      navbarName: "Thesis Apply",
+      sidebarName: "论文申报",
+      navbarName: "论文申报",
       icon: ContentPaste,
       component: () => require('./thesisapply/'),
       models: () => [require('../models/thesisapply')]
     },
     {
       path: "/student",
-      sidebarName: "Students Info",
-      navbarName: "Student Info Center",
+      sidebarName: "学生信息",
+      navbarName: "学生信息中心",
       icon: LibraryBooks,
       component: () => require('./student/'),
       models: () => [require('../models/student')]
     },
     {
       path: "/thesispresel",
-      sidebarName: "Pre Selection",
-      navbarName: "Pre Selection",
+      sidebarName: "论文预选",
+      navbarName: "论文预选",
       icon: BubbleChart,
       component: () => require('./thesispresel/'),
       models: () => [require('../models/thesispresel')]
     },
     {
       path: "/logs",
-      sidebarName: "Login Log",
-      navbarName: "Login Log",
+      sidebarName: "登录日志",
+      navbarName: "登录日志",
       icon: Explore,
       component: () => require('./logs/'),
       models: () => [require('../models/logs')]

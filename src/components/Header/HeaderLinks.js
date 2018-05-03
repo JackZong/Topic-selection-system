@@ -21,7 +21,8 @@ class HeaderLinks extends React.Component {
   	super(props)
   	this.state = {
   	  open: false,
-      userOpen: false	
+      userOpen: false,
+      msg: null
   	}
   }
   handleClick = (item) => {
@@ -40,8 +41,14 @@ class HeaderLinks extends React.Component {
   toProfile = () => {
     window.open('/profile','_self')
   }
+  componentDidMount(){
+    let msg = JSON.parse(localStorage.getItem('msg'))
+    this.setState({
+      msg: msg
+    })
+  }
   render() {
-  	const { open,userOpen } = this.state
+  	const { open, userOpen, msg } = this.state
   	return (
      <div>
        <CustomInput
@@ -84,7 +91,7 @@ class HeaderLinks extends React.Component {
              className={Style.buttonLink}
            >
              <Notifications className={Style.links} />
-             <span className={Style.notifications}>5</span>
+             <span className={Style.notifications}>{msg ? msg.length : 0}</span>
              <Hidden mdUp>
                <p onClick={() =>this.handleClick('open')} className={Style.linkText}>
                  Notification
@@ -109,36 +116,17 @@ class HeaderLinks extends React.Component {
              >
                <Paper className={Style.dropdown}>
                  <MenuList role="menu">
-                   <MenuItem
-                     onClick={() => this.handleClose('open')}
-                     className={Style.dropdownItem}
-                   >
-                     Mike John responded to your email
-                   </MenuItem>
-                   <MenuItem
-                     onClick={() => this.handleClose('open')}
-                     className={Style.dropdownItem}
-                   >
-                     You have 5 new tasks
-                   </MenuItem>
-                   <MenuItem
-                     onClick={() => this.handleClose('open')}
-                     className={Style.dropdownItem}
-                   >
-                     You're now friend with Andrew
-                   </MenuItem>
-                   <MenuItem
-                     onClick={() => this.handleClose('open')}
-                     className={Style.dropdownItem}
-                   >
-                     Another Notification
-                   </MenuItem>
-                   <MenuItem
-                     onClick={() => this.handleClose('open')}
-                     className={Style.dropdownItem}
-                   >
-                     Another One
-                   </MenuItem>
+                 {msg ? msg.map((item) => {
+                   return (
+                    <MenuItem
+                      onClick={() => this.handleClose('open')}
+                      className={Style.dropdownItem}
+                    >
+                     {item.msg_content}
+                    </MenuItem>
+                    )
+                 }) : ''}
+                 
                  </MenuList>
                </Paper>
              </Grow>

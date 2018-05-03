@@ -83,14 +83,14 @@ const ThesisCheck = ({ location, dispatch, thesischeck }) => {
         content={
           <Table
             tableHeaderColor="primary"
-            tableHead={["ID","Name","Requirement", "Mentor", "Field","Level","Max","IsPass","Actions"]}
+            tableHead={["编号","题目","要求", "导师", "类别","级别","容量","状态","操作"]}
             tableData={data}
             page={page}
             handleChangeRowsPerPage={handleChangeRowsPerPage}
             handleChangePage={handleChangePage}
             paginationShow={true}
           />}
-          cardTitle="Thesises From Mentor"
+          cardTitle="论文审核列表"
           cardIcon={Assignment}/>
           <EditForm />
           </div>

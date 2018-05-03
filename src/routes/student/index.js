@@ -6,6 +6,7 @@ import qs from 'query-string'
 import {
   AccountBox
 } from 'material-ui-icons'
+import MUIDataTable from 'mui-datatables'
 const StudentList = ({location,dispatch,student}) => {
 	const { list, page } = student
 	let data = []
@@ -19,36 +20,39 @@ const StudentList = ({location,dispatch,student}) => {
 		return item
 	})
 	const tableProps = {
-		tableHead: ['No','Name','Sex','Grade','Class','Phone','QQ','Email'],
-		tableData: data,
+		columns: ['学号','姓名','性别','年级','班级','电话','QQ','邮箱'],
+		data: data,
 		page: page,
 		paginationShow: true,
-		handleChangePage: (e,num) => {
-		  dispatch(routerRedux.push({
-		    pathname: location.pathname,
-		    search: qs.stringify({
-		      page: num,
-		      page_limit: page.page_limit || 20
-		    })
-		  }
-		  ))
-		},
-		handleChangeRowsPerPage:(e) => {
-		 dispatch(routerRedux.push({
-		   pathname: location.pathname,
-		   search: qs.stringify({
-		     page: page.page,
-		     page_limit:e.target.value || 20
-		   })
-		 }
-		 ))
+		options: {
+			filterType: 'dropdown'
 		}
+		// handleChangePage: (e,num) => {
+		//   dispatch(routerRedux.push({
+		//     pathname: location.pathname,
+		//     search: qs.stringify({
+		//       page: num,
+		//       page_limit: page.page_limit || 20
+		//     })
+		//   }
+		//   ))
+		// },
+		// handleChangeRowsPerPage:(e) => {
+		//  dispatch(routerRedux.push({
+		//    pathname: location.pathname,
+		//    search: qs.stringify({
+		//      page: page.page,
+		//      page_limit:e.target.value || 20
+		//    })
+		//  }
+		//  ))
+		// }
 	}
 	return (
       <RegularCard 
-        cardTitle="Student Info Center"
+        cardTitle="学生信息中心"
         cardIcon={AccountBox}
-        content={<Table {...tableProps}/>}
+        content={<MUIDataTable {...tableProps}/>}
       />
 	)
 }
