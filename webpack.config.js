@@ -34,6 +34,7 @@ module.exports = {
 	  new ExtractTextPlugin( "bundle.css" ),
 	  new webpack.HotModuleReplacementPlugin(),
 	  new webpack.DefinePlugin({
+      //  'API': JSON.stringify('http://47.106.149.89:3000/api')
         'API': JSON.stringify('http://127.0.0.1:3000/api')
 	  })],
 	mode: 'development',
